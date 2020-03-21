@@ -1,7 +1,15 @@
-<header>
+<div class="landing">
+  <div class="tempsignup">
+    <% if current_user %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+      <%= link_to 'Sign in', new_user_session_path %>
+    <% end %>
+  </div>
   <h1>S.U.B.S</h1>
   <h2>Surrey University Buy And Sell</h2>
-</header>
+</div>
 <section>
   <div class="aboutsubs">
     <h3>Buy or sell it's up to you!</h3>

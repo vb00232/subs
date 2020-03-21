@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*Home page styles*/
-header {
+.landing {
   color: white;
   height: 600px;
   background-image: url('/assets/homepic.jpg');
@@ -23,9 +23,12 @@ header {
     font-size: 40px;
     z-index: 1;
   }
+  .tempsignup{
+    z-index: 1;
+  }
 }
 
-header::before {
+.landing::before {
   content: '';
   position: absolute;
   top: 0;
