@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+
+ /* Site wide defaults */
+ *
+{
+ margin: 0;
+ padding: 0;
+ border: 0;
+}
