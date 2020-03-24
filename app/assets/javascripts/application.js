@@ -10,7 +10,17 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+
+//this keeps the footer at the bottom of the page
+$(document).ready(function() {
+  var docHeight = $(window).height();
+  var footerHeight = $('#footer').height();
+  var footerTop = $('#footer').position().top + footerHeight;
+
+  if (footerTop < docHeight)
+      $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+});

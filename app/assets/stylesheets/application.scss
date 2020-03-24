@@ -23,6 +23,11 @@
  border: 0;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 input, textarea {
   display: block;
   width: 50%;
@@ -38,4 +43,20 @@ input{
 
 textarea {
   height: 200px;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+footer {
+  height: 200px;
+  background-color: #26282f;
+  color: #ffffff;
+  position: absolute;
+  width: 100%;
+  .footer-container{
+    display: flex;
+    justify-content: space-between;
+  }
 }
