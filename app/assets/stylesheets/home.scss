@@ -53,3 +53,24 @@ section {
     max-height: 100%;
   }
 }
+
+//twitter box styling
+h3.favtweets{
+  text-align: center;
+  margin: 0px;
+}
+#favs{
+  display: inline-block;
+}
+
+.tweet{
+  margin: 10px;
+}
+
+.message{
+  width: 500px;
+}
+
+.from{
+  font-weight: bold;
+}

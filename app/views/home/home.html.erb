@@ -18,4 +18,13 @@
   <div class="subsdiagram">
     <%= image_tag("/assets/homeinstruc.png", :alt => "rss feed") %>
   </div>
+  <div id="favs">
+    <h3 class="favtweets">SUBS favorite tweets</h3>
+    <% $client.favorites(count: 7).each do |tweet| %>
+      <div class="tweet">
+        <div class="from">@<%= tweet.user.screen_name %></div>
+        <blockquote class="message"><%= tweet.text %></blockquote>
+      </div>
+    <% end %>
+  </div>
 </section>
