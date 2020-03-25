@@ -32,3 +32,23 @@
 en:
   app_title: "SUBS"
   hello: "Hello world. This is our project!"
+
+  home:
+    contact:
+      title: Contact Us
+      contact_us: Enter the fields below to contact us
+
+      name: "Name:"
+      enter_name: Enter your name
+      email: "Email:"
+      enter_email: Enter your email address
+      telephone: "Telephone:"
+      enter_telephone: Enter your telephone number
+      message: "Message:"
+      enter_message: What do you want to say?
+      submit: Submit
+
+    request_contact:
+      no_email: Please enter an email address
+      no_name: Please enter your name
+      email_sent: Your enquiry has been sent
