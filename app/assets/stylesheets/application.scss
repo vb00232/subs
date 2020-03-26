@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ //@import "bootstrap-sprockets";
+ //@import "bootstrap";
+
+// Not set yet
+ $backgroundColour: #ffffffff;
+ $headerColour: #000000;
+ $pColour: #ffffff;
+ $lightGrey: #e5e5e5;
+ $darkGrey: #8f8f8f;
+
+ /* Custom fontface */
+ @font-face {
+   font-family: 'Exo2-Medium';
+   src: font-url('Exo2-Medium.ttf');
+ }
+
+ @font-face {
+   font-family: 'UniversityOfSurrey';
+   src: font-url('UniversityOfSurrey.ttf');
+ }
+
+ /* Site wide defaults */
+ *
+{
+ margin: 0;
+ padding: 0;
+ border: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+input, textarea {
+  display: block;
+  width: 50%;
+  margin-bottom: 10px;
+  border: 2px solid black;
+  margin: 10px auto;
+  outline:none;
+}
+
+input{
+  height: 40px;
+}
+
+textarea {
+  height: 200px;
+}
+
+p {
+  font-family: "Exo2-Medium"
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+footer{
+  width: 100%;
+  background-color: #26282f;
+  height: 200px;
+}
+
+a:hover {
+  color: $darkGrey
+}
+
+.title {
+  font-size: 80px;
+  font-family: "UniversityOfSurrey"
+}
