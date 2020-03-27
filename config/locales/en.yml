@@ -33,8 +33,8 @@ en:
   app_title: "SUBS"
   hello: "Hello world. This is our project!"
 
-  home:      
-    home: 
+  home:
+    home:
       title: SUBS
       full_title: Surrey University Buy and Sell
 
@@ -62,3 +62,15 @@ en:
       no_email: Please enter an email address
       no_name: Please enter your name
       email_sent: Your enquiry has been sent
+
+    item:
+      index:
+        search: Search
+
+  navigation:
+    nav_home: Home
+    nav_films: Films
+    nav_profile: My Profile
+    nav_logout: Logout
+    nav_login: Login
+    nav_main: View listings

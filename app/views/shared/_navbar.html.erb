@@ -1,0 +1,42 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-left">
+      <li>
+        <a href="/">
+          <%= t('navigation.home') %>
+        </a>
+      </li>
+      <li>
+        <a href="/main">
+          <%= t('navigation.main') %>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li>
+          <a> <%= current_user.firstname %></a>
+        </li>
+        <li>
+          <a href="<%= edit_user_registration_path %>">
+            <%= t('navigation.nav_profile') %>
+          </a>
+        </li>
+        <li>
+          <%= link_to t('navigation.nav_logout'), destroy_user_session_path, method: 'delete' %>
+        </li>
+      <% else %>
+        <li>
+          <a href="<%= new_user_session_path %>">
+            <%= t('navigation.nav_login') %>
+          </a>
+        </li>
+        <li>
+          <a class="navlink" href="<%= new_user_registration_path %>">
+            <%= t('navigation.nav_register') %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

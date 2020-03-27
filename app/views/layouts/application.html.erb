@@ -13,8 +13,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/alerts' %>
+    <% if user_signed_in? %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+    <%= render 'shared/alerts' %>
     <%= yield %>
-    <%= render 'layouts/footer' %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

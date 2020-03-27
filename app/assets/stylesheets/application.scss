@@ -14,8 +14,8 @@
  *= require_self
  */
 
- //@import "bootstrap-sprockets";
- //@import "bootstrap";
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
 
 // Not set yet
  $backgroundColour: #ffffffff;
@@ -79,7 +79,7 @@ p {
 }
 
 footer{
-  
+
   width: 100%;
   background-color: #26282f;
   height: 100px;
@@ -94,4 +94,8 @@ a:hover {
 .title {
   font-size: 80px;
   font-family: "UniversityOfSurrey"
+}
+
+.navlink {
+  color: $darkGrey
 }

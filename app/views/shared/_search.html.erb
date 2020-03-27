@@ -1,0 +1,10 @@
+<% # Search bar %>
+<% # CHANGE form_tag to item model index to stop error %>
+<%= form_tag main, method: :get, class: "navbar-form", role: "search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search], class: "form-control" %>
+    <% # LOCALIZE submit_tag %>
+    <% #<%= submit_tag t('.item/index/search'), name: nil, class: "btn btn-default" %>
+    <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+  </p>
+<% end %>
