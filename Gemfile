@@ -74,3 +74,5 @@ gem 'haml-rails'
 
 #twitter gem
 gem 'twitter'
+#paperclip gem for image uploading
+gem 'paperclip', '~> 5.0.0'
