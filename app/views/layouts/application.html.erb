@@ -15,6 +15,9 @@
   <body>
     <% if user_signed_in? %>
       <%= render 'shared/navbar' %>
+      <%# Moves page content down when displaying nav bar %>
+      <br>
+      <br>
     <% end %>
     <%= render 'shared/alerts' %>
     <%= yield %>

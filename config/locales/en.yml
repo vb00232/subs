@@ -68,9 +68,8 @@ en:
         search: Search
 
   navigation:
-    nav_home: Home
-    nav_films: Films
-    nav_profile: My Profile
-    nav_logout: Logout
-    nav_login: Login
-    nav_main: View listings
+    home: Home
+    profile: My Profile
+    logout: Logout
+    login: Login
+    main: View listings

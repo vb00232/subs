@@ -31,6 +31,11 @@
  }
 
  @font-face {
+   font-family: 'Exo2-Bold';
+   src: font-url('Exo2-Bold.ttf');
+ }
+
+ @font-face {
    font-family: 'UniversityOfSurrey';
    src: font-url('UniversityOfSurrey.ttf');
  }
@@ -68,6 +73,7 @@ textarea {
 p {
   font-family: "Exo2-Medium"
 }
+
 .footer-container p, a{
   font-size: 16px;
   color: white;
@@ -79,7 +85,6 @@ p {
 }
 
 footer{
-
   width: 100%;
   background-color: #26282f;
   height: 100px;
@@ -87,8 +92,16 @@ footer{
   display: table;
 }
 
+a {
+  font-family: "Exo2-Medium"
+}
+
 a:hover {
   color: $darkGrey
+}
+
+h3 {
+  font-family: "Exo2-Bold"
 }
 
 .title {
@@ -96,6 +109,12 @@ a:hover {
   font-family: "UniversityOfSurrey"
 }
 
-.navlink {
-  color: $darkGrey
+.nav a {
+  color: white
+}
+
+.navbar-form li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
 }
