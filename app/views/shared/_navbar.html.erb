@@ -21,6 +21,11 @@
           <a> <%= current_user.firstname %></a>
         </li>
         <li>
+          <a href="/products">
+            <%= t('navigation.products') %>
+          </a>
+        </li>
+        <li>
           <a href="<%= edit_user_registration_path %>">
             <%= t('navigation.profile') %>
           </a>

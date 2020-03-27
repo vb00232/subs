@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
    #validations
    validates :firstname, :lastname, presence: true
+
+   has_many :products, dependent: :destroy
 end
