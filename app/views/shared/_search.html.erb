@@ -1,8 +1,7 @@
 <% # Search bar %>
-<% # CHANGE form_tag to item model index to stop error %>
 <%= form_tag href="/main", method: :get, class: "navbar-form", role: "search" do %>
   <li>
-    <%= text_field_tag :query, params[:query], class: "form-control" %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search..."%>
   </li>
   <li>
     <% # LOCALIZE submit_tag %>

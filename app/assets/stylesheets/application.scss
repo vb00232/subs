@@ -110,11 +110,30 @@ h3 {
 }
 
 .nav a {
-  color: white
+  color: white;
 }
 
 .navbar-form li {
   display: inline-block;
   font-size: 20px;
   padding: 20px;
+}
+
+.navtitle {
+  font-size: 40px;
+  font-family: "UniversityOfSurrey";
+  color: white;
+}
+
+.logo {
+  padding: 3px;
+  width: 75px;
+}
+
+.logo:hover {
+  content: url('/assets/LogoWhite.png');
+}
+
+.dropdown-content a {
+  color: black;
 }
