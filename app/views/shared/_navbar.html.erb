@@ -13,16 +13,18 @@
           <%= t('navigation.home') %>
         </a>
       </li>
-      <li>
-        <a href="/main">
-          <%= t('navigation.main') %>
-        </a>
-      </li>
-      <li>
-        <%= render 'shared/search' %>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li>
+          <a href="/main">
+            <%= t('navigation.main') %>
+          </a>
+        </li>
+        <li>
+          <%= render 'shared/search' %>
+        </li>
+      <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li>
           <div class="dropdown">
@@ -40,13 +42,13 @@
         </li>
       <% else %>
         <li>
-          <a href="<%= new_user_session_path %>">
-            <%= t('navigation.login') %>
+          <a href="<%= new_user_registration_path %>">
+            <%= t('navigation.register') %>
           </a>
         </li>
         <li>
-          <a href="<%= new_user_registration_path %>">
-            <%= t('navigation.register') %>
+          <a href="<%= new_user_session_path %>">
+            <%= t('navigation.login') %>
           </a>
         </li>
       <% end %>

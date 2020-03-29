@@ -71,5 +71,6 @@ en:
     home: Home
     profile: My Profile
     logout: Logout
-    login: Login
+    login: Sign in
+    register: Sign up
     main: View listings

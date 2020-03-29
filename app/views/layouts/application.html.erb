@@ -13,12 +13,10 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= render 'shared/navbar' %>
-      <%# Moves page content down when displaying nav bar %>
-      <br>
-      <br>
-    <% end %>
+    <%= render 'shared/navbar' %>
+    <%# Moves page content down when displaying nav bar %>
+    <br>
+    <br>
     <%= render 'shared/alerts' %>
     <%= yield %>
     <%= render 'shared/footer' %>

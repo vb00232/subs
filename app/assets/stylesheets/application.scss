@@ -23,6 +23,7 @@
  $pColour: #ffffff;
  $lightGrey: #e5e5e5;
  $darkGrey: #8f8f8f;
+ $surreyBlue: #002868;
 
  /* Custom fontface */
  @font-face {
@@ -105,8 +106,9 @@ h3 {
 }
 
 .title {
-  font-size: 80px;
-  font-family: "UniversityOfSurrey"
+  font-size: 130px;
+  font-family: "UniversityOfSurrey";
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .nav a {
@@ -134,6 +136,13 @@ h3 {
   content: url('/assets/LogoWhite.png');
 }
 
+// Navigation bar dropdown
 .dropdown-content a {
+  color: $darkGrey;
+}
+
+.dropdown-content a:hover {
   color: black;
+  background-color: transparent;
+  text-decoration: none;
 }
