@@ -94,3 +94,22 @@ h3.favtweets{
 .dropdown:hover .dropdown-content{
   display: block;
 }
+.contactimage {
+
+//  float: right;
+  position: absolute;
+  right: 200px;
+  height: 350px;
+  width: 350px;
+
+  //background-image: url('/assets/ImagefromiOS.png');
+  //background-size: 100px;
+  //background-position: right;
+
+}
+.alert{
+  color: red;
+}
+.notice{
+  color: green;
+}
