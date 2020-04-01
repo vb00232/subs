@@ -2,5 +2,11 @@
   <%= content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank? %>
 <% end %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
+<% if flash%>
+  <br>
+  <br>
+  <br>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+<% end %>
