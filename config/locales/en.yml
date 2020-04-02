@@ -61,6 +61,8 @@ en:
     request_contact:
       no_email: Please enter an email address
       no_name: Please enter your name
+      no_telephone: Please enter a valid telephone number
+      no_message: Please enter your message for us
       email_sent: Your enquiry has been sent
 
     item:
