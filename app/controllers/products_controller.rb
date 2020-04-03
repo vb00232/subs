@@ -13,13 +13,12 @@ class ProductsController < ApplicationController
         query: {
           multi_match: {
             query: params[:query],
-            fields: ['name', 'description']
+            fields: ['name', 'description', 'price']
           }
         }
       ).results
 
       # JSON layout to display products
-      # NEEDS CHANGING
       render json: {
         results: response.results,
         total: response.total

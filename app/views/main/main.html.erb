@@ -4,12 +4,14 @@
     <h2>No products found</h2>
   <% else %>
     <% unless @query.nil? %>
-      <h2>Results for SEARCH_WORD (needs changing)</h2>
+      <h2>Search results for "<%=@query%>"</h2>
     <% end %>
     <table>
       <thead>
         <tr>
           <th>Name</th>
+          <th>Price</th>
+          <th>Image</th>
           <th></th>
           <th></th>
           <th></th>
@@ -20,6 +22,14 @@
         <tr>
           <td>
             <%= product.name %>
+          </td>
+          <td>
+            <%= product.price %>
+          </td>
+          <td>
+            <% if product.image.attached? %>
+              <%= image_tag product.image %>
+            <% end %>
           </td>
         </tr>
         <% end %>
