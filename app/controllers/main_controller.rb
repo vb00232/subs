@@ -4,7 +4,7 @@ class MainController < ApplicationController
     # Checks if search query is present
     if query
       #Search for multi-query fields on the selected indexed fields
-      response = Product.__elasticsearch__.search(
+      @products = Product.__elasticsearch__.search(
         query: {
           multi_match: {
             query: params[:query],
@@ -15,10 +15,10 @@ class MainController < ApplicationController
 
       # JSON layout to display products
       # NEEDS CHANGING
-      render json: {
-        results: response.results,
-        total: response.total
-      }
+      # render json: {
+      #   results: @products.results,
+      #   total: @products.total
+      # }
     # If no query, display all products
     else
       @products = Product.all

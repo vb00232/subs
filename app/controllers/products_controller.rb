@@ -30,6 +30,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search_query(query)
+    self.__elasticsearch__.search(
+      query: {
+        multi_match: {
+          query: params[:query],
+          fields: ['name', 'description']
+        }
+      }
+    ).results
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show
