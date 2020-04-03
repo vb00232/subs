@@ -32,7 +32,6 @@ class HomeController < ApplicationController
     # Redirects to the home page if email sent
     if valid
       redirect_to root_path
-
     # Redirects back to contact page if email not sent
     else
       redirect_to contact_path

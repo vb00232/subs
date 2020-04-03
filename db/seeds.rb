@@ -5,12 +5,19 @@
 
 Product.__elasticsearch__.create_index!(force: true)
 
-user = User.new
-user.firstname = "test"
-user.lastname = "test"
-user.email = 'tt00000@surrey.ac.uk'
-user.password = 'password'
-user.encrypted_password = '#$taawktljasktlw4aaglj'
-user.save!
+# Test user
+user1 = User.where(email: 'aa00000@surrey.ac.uk').first
+user1.delete if user1
+user1 = User.create([firstname: 'test',
+  lastname: 'test',
+  email: 'aa00000@surrey.ac.uk',
+  password: 'password',
+  encrypted_password: '#$taawktljasktlw4aaglj'])
 
-Product.create!(name: 'Test product', description: 'DESC', price:1)
+# Test product
+product1 = Product.where(name: 'Test products').first
+product1.delete if product1
+product1 = Product.create([name: 'Name',
+  description: 'Description',
+  price: 1,
+  user_id: user1.first.id])
