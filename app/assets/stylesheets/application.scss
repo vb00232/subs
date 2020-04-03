@@ -22,8 +22,10 @@
  $headerColour: #000000;
  $pColour: #ffffff;
  $lightGrey: #e5e5e5;
- $darkGrey: #8f8f8f;
+ $mediumGrey: #8f8f8f;
+ $darkGrey: #525252;
  $surreyBlue: #002868;
+ $linkColour: white;
 
  /* Custom fontface */
  @font-face {
@@ -93,15 +95,18 @@ footer{
   display: table;
 }
 
-a {
-  font-family: "Exo2-Medium"
+a, a:visited {
+  color: $darkGrey;
+  font-family: "Exo2-Medium";
 }
 
-a:hover {
-  color: $darkGrey
+a:hover, a:active {
+  color: black;
+  background-color: inherit;
 }
 
-h3 {
+
+h2, h3 {
   font-family: "Exo2-Bold"
 }
 
@@ -137,7 +142,7 @@ h3 {
 
 // Navigation bar dropdown
 .dropdown-content a {
-  color: $darkGrey;
+  color: $mediumGrey;
 }
 
 .dropdown-content a:hover {

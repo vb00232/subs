@@ -24,10 +24,9 @@ class ProductsController < ApplicationController
         results: response.results,
         total: response.total
       }
-    # If no query, display all products
+    # If no query, displays a user's products
     else
-      @products = Product.all
-      #@posts = Post.search_published(query)
+      @products = Product.user_products(current_user)
     end
   end
 
