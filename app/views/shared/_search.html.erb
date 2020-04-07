@@ -2,10 +2,6 @@
 <%= form_tag href="/main", method: :get, class: "navbar-form", role: "search" do %>
   <li>
     <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search..."%>
-  </li>
-  <li>
-    <% # LOCALIZE submit_tag %>
-    <% #<%= submit_tag t('.item/index/search'), name: nil, class: "btn btn-default" %>
-    <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+    <%= image_submit_tag("/assets/SearchIcon.png", class: "btn btn-default searchButton") %>
   </li>
 <% end %>

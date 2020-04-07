@@ -115,17 +115,23 @@ h2, h3 {
   text-shadow: 2px 2px 4px #000000;
 }
 
+.navbar {
+    height: 75px;
+}
+
 .nav a {
   color: white;
 }
 
+
+
 .navbar-form li {
   display: inline-block;
   font-size: 20px;
-  padding: 20px;
 }
 
 .navtitle {
+  top: -30px;
   font-size: 40px;
   font-family: "UniversityOfSurrey";
   color: white;
@@ -141,6 +147,11 @@ h2, h3 {
 }
 
 // Navigation bar dropdown
+.dropdown {
+  top: 20px;
+  padding: 10px;
+  background-color: #002868;
+}
 .dropdown-content a {
   color: $mediumGrey;
 }
@@ -149,4 +160,12 @@ h2, h3 {
   color: black;
   background-color: transparent;
   text-decoration: none;
+}
+
+.searchButton {
+  width: 50px;
+}
+
+.search {
+  top: 80px;
 }
