@@ -21,7 +21,7 @@
         <% @products.each do |product| %>
         <tr>
           <td>
-            <%= product.name %>
+            <%= link_to product.name, product %>
           </td>
           <td>
             <%= product.price %>
