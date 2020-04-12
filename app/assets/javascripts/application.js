@@ -23,4 +23,21 @@ $(document).ready(function() {
 
   if (footerTop < docHeight)
       $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+
+  $('#A2').hide();
+  $('#q2').click(function(){
+    $('#A2').show();
+  });
+  $('#A3').hide();
+  $('#q3').click(function(){
+    $('#A3').show();
+  });
+  $('#A4').hide();
+  $('#q4').click(function(){
+    $('#A4').show();
+  });
+  $('#A5').hide();
+  $('#q5').click(function(){
+    $('#A5').show();
+  });
 });
