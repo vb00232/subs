@@ -4,6 +4,10 @@ class Product < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
+  validates :name, :price, :description, presence: true
+  validates :name, length: { minimum: 5 }
+  validates :price, numericality: { greater_than: 0, less_than_or_equal_to: 10000 }
+
   # Automatically update Elasticsearch index based on model changes
   include Elasticsearch::Model
   # Automatically injects the callback subscribers, e.g after_save
