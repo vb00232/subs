@@ -76,3 +76,16 @@ en:
     login: Sign in
     register: Sign up
     main: View listings
+
+  categories:
+    unselected: No category selected
+    art: Art
+    books: Books
+    clothes: Clothes
+    electronics: Electronics
+    tickets: Event Tickets
+    furniture: Furniture
+    health_and_beauty: Health and Beauty
+    jewelry: Jewelry
+    games: Video games and consoles
+    other: Other
