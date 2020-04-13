@@ -4,30 +4,41 @@ class ProductsController < ApplicationController
 
   # GET /products
   # GET /products.json
+
   def index
     query = params[:query]
     # Checks if search query is present
     if query
-      #Search for multi-query fields on the selected indexed fields
-      response = Product.__elasticsearch__.search(
-        query: {
-          multi_match: {
-            query: params[:query],
-            fields: ['name', 'description', 'price']
-          }
-        }
-      ).results
-
-      # JSON layout to display products
-      render json: {
-        results: response.results,
-        total: response.total
-      }
-    # If no query, displays a user's products
+      @products = Product.search(params[:query], page: params[:page])
     else
-      @products = Product.user_products(current_user)
+      @products = Product.all
     end
   end
+
+  # def index
+  #   query = params[:query]
+  #   # Checks if search query is present
+  #   if query
+  #     #Search for multi-query fields on the selected indexed fields
+  #     response = Product.__elasticsearch__.search(
+  #       query: {
+  #         multi_match: {
+  #           query: params[:query],
+  #           fields: ['name', 'description', 'price']
+  #         }
+  #       }
+  #     ).results
+  #
+  #     # JSON layout to display products
+  #     render json: {
+  #       results: response.results,
+  #       total: response.total
+  #     }
+  #   # If no query, displays a user's products
+  #   else
+  #     @products = Product.user_products(current_user)
+  #   end
+  # end
 
   def search_query(query)
     self.__elasticsearch__.search(

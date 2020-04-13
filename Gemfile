@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'searchkick'
 gem 'elasticsearch-model'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'modernizr-rails'
