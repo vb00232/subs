@@ -3,21 +3,21 @@ Changes an image's source
 **/
 
 // List of image paths
-var images = ["url(/assets/homepic.jpg)", "url(/assets/homepic2.jpg)", "url(/assets/homepic3.jpg)"];
-// Pointer to next image source
-var nextImage = 0;
-
-$(document).ready(function() {
-  // Sets a timer
-  setInterval(function() {
-    nextImage = nextImage + 1;
-    // Resets nextImage if out of range
-    if (nextImage > images.length - 1) {
-      nextImage = 0;
-    }
-    // Gets image source
-    var path = images[nextImage];
-    // Changes the image source
-    $('.landing').css('background-image', path);
-  }, 8000);
-});
+// var images = ["url(/assets/homepic.jpg)", "url(/assets/homepic2.jpg)", "url(/assets/homepic3.jpg)"];
+// // Pointer to next image source
+// var nextImage = 0;
+//
+// $(document).ready(function() {
+//   // Sets a timer
+//   setInterval(function() {
+//     nextImage = nextImage + 1;
+//     // Resets nextImage if out of range
+//     if (nextImage > images.length - 1) {
+//       nextImage = 0;
+//     }
+//     // Gets image source
+//     var path = images[nextImage];
+//     // Changes the image source
+//     $('.landing').css('background-image', path);
+//   }, 8000);
+// });

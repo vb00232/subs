@@ -43,7 +43,7 @@
    src: font-url('UniversityOfSurrey.ttf');
  }
 
- /* Site wide defaults */
+ /********** Site wide defaults *****/
  *
 {
  margin: 0;
@@ -57,70 +57,21 @@ body {
 }
 
 body {
-  padding-top: 50px;
-}
-
-.notice, .alert {
-  margin: 0 10px;
-  position: absolute;
-  color: white;
-  z-index: 1;
-  font-size: 20px;
-  top: 100px;
-}
-
-input, textarea {
-  display: block;
-  width: 50%;
-  margin-bottom: 10px;
-  border: 2px solid black;
-  margin: 10px auto;
-  outline:none;
-}
-
-input{
-  height: 40px;
-}
-
-textarea {
-  height: 200px;
+  padding-top: 75px;
 }
 
 p {
-  font-family: "Exo2-Medium"
-}
-
-.footer-container p, a{
-  font-size: 16px;
-  color: white;
-
-  text-decoration: none;
-
-  padding: 0px;
-  margin: 14px;
-}
-
-footer{
-  width: 100%;
-  background-color: #26282f;
-  height: 100px;
-  text-align: center;
-  display: table;
-}
-
-a, a:visited {
-  color: $darkGrey;
   font-family: "Exo2-Medium";
 }
 
-a:hover, a:active {
-  color: black;
-  background-color: inherit;
+h2, h3 {
+  font-family: "Exo2-Bold";
+  text-align: center;
 }
 
-
-h2, h3 {
-  font-family: "Exo2-Bold"
+a, a:visited {
+  color: $linkColour;
+  font-family: "Exo2-Medium";
 }
 
 .title {
@@ -128,15 +79,34 @@ h2, h3 {
   text-shadow: 2px 2px 4px #000000;
 }
 
+ /************* Nav bar **************/
+
+.navbar-custom {
+  background-color: #015990;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid $linkColour;
+  padding-bottom: 5px;
+  background-color: transparent !important;
+
+}
+
+.navlogo {
+  height:55px;
+  margin-top: 8px;
+  float: left;
+  margin-right: 30px;
+}
+
 .navbar {
-    height: 75px;
+  height: 75px;
 }
 
 .nav a {
-  color: white;
+  color: $linkColour;
 }
-
-
 
 .navbar-form li {
   display: inline-block;
@@ -150,13 +120,73 @@ h2, h3 {
   color: white;
 }
 
-.logo {
-  padding: 3px;
-  width: 75px;
+/************* Notices ***********/
+
+.notice, .alert {
+  position: absolute;
+  color: gold;
+  z-index: 1;
+  font-size: 20px;
+  top: 120px;
+  width: 100%;
+  text-align: center;
 }
 
-.logo:hover {
-  content: url('/assets/LogoWhite.png');
+#error_explanation {
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2{
+    color: red;
+  }
+}
+
+/************* input boxes *********/
+
+input, textarea {
+  display: block;
+  width: 50%;
+  margin-bottom: 10px;
+  border: 2px solid black;
+  margin: 10px auto;
+  outline:none;
+  border: 2px solid #e2e3e4;
+}
+
+input{
+  height: 40px;
+}
+
+textarea {
+  height: 200px;
+}
+
+.textareabackground{
+  padding: 50px 0px;
+  text-align: center;
+  a{
+    color: $darkGrey;
+  }
+}
+
+/*************** footer *************/
+
+
+.footer-container p, a{
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  padding: 0px;
+  margin: 14px;
+}
+
+footer{
+  width: 100%;
+  background-color: #033b67;
+  height: 100px;
+  text-align: center;
+  display: table;
 }
 
 // Navigation bar dropdown
