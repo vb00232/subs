@@ -42,3 +42,11 @@ $(document).ready(function() {
     $('#A5').show();
   });
 });
+
+//when a user logs in, signs up or logs out then a message is displayed
+//this removes that message after a certain time period
+$(document).ready(function(){
+   setTimeout(function(){
+      $("p.notice").hide("slow");
+   },1000);
+});

@@ -1,14 +1,6 @@
 <div class="landing">
   <h1 class="title">  <%= t(".title") %>  </h1>
   <h2> <%= t(".full_title") %> </h2>
-  <div class="tempsignup">
-    <% if current_user %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign up', new_user_registration_path %>
-      <%= link_to 'Sign in', new_user_session_path %>
-    <% end %>
-  </div>
 </div>
 <section>
   <div class="aboutsubs">

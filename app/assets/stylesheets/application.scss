@@ -56,6 +56,19 @@ body {
   height: 100%;
 }
 
+body {
+  padding-top: 50px;
+}
+
+.notice, .alert {
+  margin: 0 10px;
+  position: absolute;
+  color: white;
+  z-index: 1;
+  font-size: 20px;
+  top: 100px;
+}
+
 input, textarea {
   display: block;
   width: 50%;
