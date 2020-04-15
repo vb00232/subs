@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-
+  namespace :user do
+    root :to => 'main#main'
+  end
   resources :products
   devise_for :users
   root to: 'home#home'
