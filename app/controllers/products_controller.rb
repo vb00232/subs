@@ -13,7 +13,6 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
-
   end
 
   # def index
@@ -87,25 +86,21 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
-      else
-        format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    product = Product.find(params[:id])
+    if product.update(product_params)
+      redirect_to product_path(product.user_id)
+    else
+      flash[:errors] = product.errors.full_messages
+      redirect_back(fallback_location: root_path)
     end
   end
 
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    @product.destroy
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to product_path(product.user_id)
   end
 
   private
