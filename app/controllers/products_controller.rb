@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:edit, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy, :show]
   before_action :authenticate_user!, except: [ :show ]
 
   # GET /products
@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
     sort = params[:sort]
 
     # Checks if search query is present
-    if query
+    if query && query != ""
       @products = Array.new
 
       #Search based upon selected indexed fields
@@ -84,6 +84,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+
   end
 
   # GET /products/new

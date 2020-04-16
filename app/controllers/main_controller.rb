@@ -6,7 +6,7 @@ class MainController < ApplicationController
     sort = params[:sort]
 
     # Checks if search query is present
-    if query
+    if query && query != ""
       @products = Array.new
 
       #Search based upon selected indexed fields
@@ -16,7 +16,7 @@ class MainController < ApplicationController
       # Retrieves products from the database using their id
       queryResults.each do |result|
         @products.append(Product.product_id(result.id).first)
-      end
+    end
 
     # If no query, display all products
     else
