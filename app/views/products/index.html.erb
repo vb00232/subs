@@ -4,9 +4,9 @@
     <div class="sellingrow">
       <%# Prevents errors if no image found %>
       <% if product.image.attached? %>
-        <%= image_tag(product.image, class: "productImage") %>
+        <%= link_to image_tag(product.image, class: "productImage"), product_path(product.id) %>
       <% else %>
-        <%= image_tag("Icon.png", class: "productImage") %>
+        <%= link_to image_tag("Icon.png", class: "productImage"), product_path(product.id) %>
       <% end %>
       <div class="about">
         <p><%= product.name %></p>
