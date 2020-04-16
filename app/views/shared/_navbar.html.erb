@@ -18,7 +18,7 @@
             <button class="dropbtn"><%= current_user.firstname %></button>
             <div class="dropdown-content">
               <a href="/products/new">Create listing</a>
-              <%= link_to "Selling", "/products" %>
+              <%= link_to "Selling", products_path %>
               <%= link_to t('navigation.profile'), edit_user_registration_path %>
             </div>
           </div>
