@@ -1,21 +1,17 @@
 <h2>My Listings</h2>
-<div>
-  <table>
-    <thead>
-      <tr>
-        <td>image</td>
-        <td>desc</td>
-        <td>price</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @userListings.each do |userListing| %>
-      <tr>
-        <td><%= image_tag(userListing.image, class: "productImage") %></td>
-        <td><%= userListing.name %></td>
-        <td><%= userListing.price %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="usersellingtable">
+  <% @userListings.each do |userListing| %>
+    <div class="sellingrow">
+      <%= image_tag(userListing.image, class: "productImage") %>
+      <div class="about">
+        <p><%= userListing.name %></p>
+        <p><%= userListing.description %></p>
+        <p><%= number_to_currency(userListing.price, :unit => "£") %></p>
+      </div>
+      <div class="options">
+        <%= link_to image_tag("/assets/editicon.png", :alt => "edit icon", :class => "icon"), edit_product_path(userListing.id)%>
+        <%= link_to image_tag("/assets/deleteicon.png", :alt => "delete icon", :class => "icon"), product_path(userListing.id), data: {method: :delete, confirm: "Are you sure?"} %>
+      </div>
+    </div>
+  <% end %>
 </div>
