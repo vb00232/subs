@@ -69,6 +69,7 @@ en:
       index:
         search: Search
 
+  # Navigation bar text
   navigation:
     home: Home
     profile: My Profile
@@ -77,6 +78,7 @@ en:
     register: Sign up
     main: View listings
 
+  # Product categories
   categories:
     unselected: No category selected
     art: Art
@@ -89,3 +91,10 @@ en:
     jewelry: Jewelry
     games: Video games and consoles
     other: Other
+
+  # Sorting of products
+  sortby:
+    featured: Featured
+    lowtohigh: Low to high
+    hightolow: High to low
+    newlistings: New listings

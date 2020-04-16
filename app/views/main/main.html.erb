@@ -1,4 +1,8 @@
 <h1>Listings</h1>
+
+<%# Sorting of products %>
+<%= render 'shared/sortby' %>
+
 <% unless @products.nil? %>
   <% if @products.empty? %>
     <h2>No products found</h2>

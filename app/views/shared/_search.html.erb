@@ -2,21 +2,12 @@
   <% # Search bar %>
   <%= form_tag href="/main", method: :get, class: "navbar-form", role: "search" do %>
       <li>
-        <select class="productCategories">
-            <option><%= t('categories.unselected') %></option>
-            <option><%= t('categories.art') %></option>
-            <option><%= t('categories.books') %></option>
-            <option><%= t('categories.clothes') %></option>
-            <option><%= t('categories.electronics') %></option>
-            <option><%= t('categories.tickets') %></option>
-            <option><%= t('categories.furniture') %></option>
-            <option><%= t('categories.health_and_beauty') %></option>
-            <option><%= t('categories.jewelry') %></option>
-            <option><%= t('categories.games') %></option>
-            <option><%= t('categories.other') %></option>
-          </select>
-      </li>
-      <li>
+        <%= select_tag 'category', options_for_select([ t('categories.unselected'),
+        t('categories.art'), t('categories.books'), t('categories.clothes'),
+        t('categories.electronics'), t('categories.tickets'),
+        t('categories.furniture'), t('categories.health_and_beauty'),
+        t('categories.jewelry'), t('categories.games'),
+        t('categories.other')], t('categories.unselected')), class: "productCategories" %>
         <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search..."%>
         <%= image_submit_tag("/assets/SearchIcon.png", class: "btn btn-default searchButton", style: "height: 35px; margin:0;") %>
       </li>
