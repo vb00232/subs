@@ -1,0 +1,12 @@
+<div class="sortby">
+  <% # Sorting of products %>
+  <%= form_tag href=request.original_url, method: :get, class: "navbar-form", role: "search" do %>
+      <li>
+        <%= select_tag :sort, options_for_select([ t('sortby.featured'),
+        t('sortby.lowtohigh'), t('sortby.hightolow'),
+        t('sortby.newlistings'), t('sortby.oldlistings')],
+        params[:sort]), class: "productCategories",
+        :onchange => "this.form.submit();", include_blank: "Sort by..." %>
+      </li>
+  <% end %>
+</div>
