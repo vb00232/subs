@@ -4,9 +4,7 @@
     <ul class="nav navbar-nav navbar-left">
       <% if user_signed_in? %>
         <li>
-          <a href="/main">
-            <%= t('navigation.main') %>
-          </a>
+          <%= link_to t('navigation.main'), listings_path %>
         </li>
         <li>
           <%= render 'shared/search' %>
@@ -20,8 +18,8 @@
             <button class="dropbtn"><%= current_user.firstname %></button>
             <div class="dropdown-content">
               <a href="/products/new">Create listing</a>
-              <a href="/products">Selling</a>
-              <a href="<%= edit_user_registration_path %>"><%= t('navigation.profile') %></a>
+              <%= link_to "Selling", product_path(current_user.id) %>
+              <%= link_to t('navigation.profile'), edit_user_registration_path %>
             </div>
           </div>
         </li>

@@ -1,24 +1,21 @@
-<p id="notice">
-  <%= notice %>
-</p>
-<p>
-  <b>Name:</b>
-  <%= @product.name %>
-</p>
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
-<% if @product.image.attached? %>
-<p>
-  <b>Photos:</b>
-  <%= image_tag @product.image %>
-</p>
-<% end %>
-<%= link_to 'Edit', edit_product_path(@product) %>
-\|
-<%= link_to 'Back', :back %>
+<h2>My Listings</h2>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td>image</td>
+        <td>desc</td>
+        <td>price</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @userListings.each do |userListing| %>
+      <tr>
+        <td><%= image_tag(userListing.image, class: "productImage") %></td>
+        <td><%= userListing.name %></td>
+        <td><%= userListing.price %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
