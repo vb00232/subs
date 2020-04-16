@@ -4,7 +4,8 @@
       <li>
         <%= select_tag :sort, options_for_select([ t('sortby.featured'),
         t('sortby.lowtohigh'), t('sortby.hightolow'),
-        t('sortby.newlistings')], params[:sort]), class: "productCategories",
+        t('sortby.newlistings'), t('sortby.oldlistings')],
+        params[:sort]), class: "productCategories",
         :onchange => "this.form.submit();", include_blank: "Sort by..." %>
       </li>
   <% end %>

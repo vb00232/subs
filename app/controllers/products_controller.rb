@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
+
   end
 
   # def index

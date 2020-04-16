@@ -17,4 +17,6 @@ class Product < ApplicationRecord
   # Finds products based on id
   scope :product_id, -> (product_id) { where('id=?', product_id) }
 
+  
+
 end
