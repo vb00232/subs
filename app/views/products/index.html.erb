@@ -19,7 +19,7 @@
       </div>
       <div class="options">
         <%= link_to image_tag("/assets/editicon.png", :alt => "edit icon", :class => "icon"), edit_product_path(product.id)%>
-        <%= link_to image_tag("/assets/deleteicon.png", :alt => "delete icon", :class => "icon"), products_path, data: {method: :delete, confirm: "Are you sure?"} %>
+        <%= link_to image_tag("/assets/deleteicon.png", :alt => "delete icon", :class => "icon"), product_path(product.id), data: {method: :delete, confirm: "Are you sure?"} %>
       </div>
     </div>
   <% end %>

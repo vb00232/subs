@@ -118,7 +118,7 @@ class ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     if product.update(product_params)
-      redirect_to product_path(product.user_id)
+      redirect_to products_path
     else
       flash[:errors] = product.errors.full_messages
       redirect_back(fallback_location: root_path)
@@ -130,7 +130,7 @@ class ProductsController < ApplicationController
   def destroy
     product = Product.find(params[:id])
     product.destroy
-    redirect_to product_path(product.user_id)
+    redirect_to products_path
   end
 
   private
