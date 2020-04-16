@@ -54,7 +54,6 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @userListings = Product.user_products(params[:id])
   end
 
   # GET /products/new
