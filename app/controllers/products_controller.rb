@@ -13,6 +13,10 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
+    user = params[:user]
+    if user
+      @products = Product.user_products(user)
+    end
   end
 
   # def index
