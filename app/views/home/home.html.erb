@@ -10,17 +10,23 @@
   <div class="subsdiagram">
     <%= image_tag("/assets/homeinstruc.png", :alt => "rss feed") %>
   </div>
-</section>
-<section class="homesection2">
   <div id="favs">
     <h3 class="favtweets"> <%= t(".tweets_header") %> </h3>
-    <a href="https://twitter.com/SUBS90033893?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-screen-name="false" data-show-count="false">Follow @SUBS90033893</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Check out SUBS to sell or buy from other Surrey students!" data-url="http://example.com/" data-hashtags="SUBS" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <% $client.favorites(count: 7).each do |tweet| %>
-      <div class="tweet"><%= t(".full_title") %>
+    <div class="twitterButton">
+      <a href="https://twitter.com/SUBS90033893?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-screen-name="false" data-show-count="false">Follow @SUBS90033893</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Check out SUBS to sell or buy from other Surrey students!" data-url="http://example.com/" data-hashtags="SUBS" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <% $client.favorites(count: 3).each do |tweet| %>
+      <div class="tweet">
         <div class="from">@<%= tweet.user.screen_name %></div>
-        <blockquote class="message"><%= tweet.text %></blockquote>
+        <div class="picAndTweet">
+          <image id="tweerProfile" src="<%= tweet.user.profile_image_url %>" />
+          <blockquote class="message"><%= tweet.text %></blockquote>
+        </div>
       </div>
     <% end %>
   </div>
+</section>
+<section class="homesection2">
+
 </section>

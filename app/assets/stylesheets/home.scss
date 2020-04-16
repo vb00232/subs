@@ -61,10 +61,24 @@
 //twitter box styling
 h3.favtweets{
   text-align: center;
-  margin: 0px;
+  margin: 10px;
 }
 #favs{
   display: inline-block;
+  background-color: #e2e3e4;
+  border-radius: 20px;
+}
+.twitterButton{
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.picAndTweet{
+  //display: inline-block;
+}
+#tweerProfile{
+  float: left;
+  padding: 5px;
 }
 
 .tweet{
@@ -72,7 +86,8 @@ h3.favtweets{
 }
 
 .message{
-  width: 500px;
+  width: 400px;
+  float: right;
 }
 
 .from{
