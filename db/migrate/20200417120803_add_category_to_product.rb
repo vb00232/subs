@@ -1,4 +1,4 @@
-class AddCategoriesToProduct < ActiveRecord::Migration[5.2]
+class AddCategoryToProduct < ActiveRecord::Migration[5.2]
   def change
     add_column :products, :category, :integer
   end
