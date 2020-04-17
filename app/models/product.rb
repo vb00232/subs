@@ -17,6 +17,8 @@ class Product < ApplicationRecord
   # Finds products based on id
   scope :product_id, -> (product_id) { where('id=?', product_id) }
 
-  
+  enum category [:art, :books, :clothes, :electronics, :event_tickets, :furniture, :h_and_b, :jewelery, :v_g_and_c]
+
+
 
 end
