@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   # GET /products.json
 
   def index
+    # Gets a list of all categories
     categories = Category.all
     @categoryNames = Array.new
     for c in categories do
@@ -99,6 +100,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @categories = Category.all
   end
 
   # GET /products/1/edit
