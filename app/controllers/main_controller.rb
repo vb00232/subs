@@ -1,6 +1,15 @@
 class MainController < ApplicationController
 
   def main
+    categories = Category.all
+    @categoryNames = Array.new
+    for c in categories do
+      @categoryNames.append(c.name)
+    end
+    if @categoryNames.empty?
+      @categoryNames.append("Run rake:db seed in console to load categories")
+    end
+
     # Keyword from search bar
     query = params[:query]
     sort = params[:sort]
