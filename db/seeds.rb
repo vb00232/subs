@@ -1,6 +1,15 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+# Seeds to add default create categories
+categories = ["Art", "Books", "Clothes", "Electronics", "Event Tickets",
+  "Furniture", "Health and beauty", "Jewelry", "Video Games and Consoles"]
+for c in categories do
+  cat = Category.where(name: c).first
+  cat.delete if cat
+  cat = Category.create([name: c])
+end
+
 # Seeds used to test elastic search
 
 Product.__elasticsearch__.create_index!(force: true)
