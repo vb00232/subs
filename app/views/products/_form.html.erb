@@ -29,7 +29,7 @@
     <%= f.label :category %>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= check_box("categories_selected", "selected_categories[]", { multiple: true }, category.id, nil) %>
+        <td><%= check_box("categories_selected", "selected[]", { multiple: true }, category.id, nil) %>
           <td><%= category.name %></td>
         </tr>
     <% end %>

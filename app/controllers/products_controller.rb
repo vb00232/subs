@@ -112,9 +112,17 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    @categories = Category.all
 
     respond_to do |format|
       if @product.save
+        # Adds a product's categories to database
+        categories_selected = params[:categories_selected][:selected]
+        for c in categories_selected do
+          productCategory = ProductCategory.new(product: @product, category: c)
+          productCategory.save
+        end
+        
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
