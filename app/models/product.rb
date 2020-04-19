@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  enum category: [:art, :books, :clothes, :electronics, :event_tickets, :furniture, :h_and_b, :jewelery, :v_g_and_c]
+  #enum category: [:art, :books, :clothes, :electronics, :event_tickets, :furniture, :h_and_b, :jewelery, :v_g_and_c]
 
   validates :name, :price,:category, :description, presence: true
   validates :name, length: { minimum: 5 }
