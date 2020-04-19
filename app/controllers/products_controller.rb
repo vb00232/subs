@@ -94,7 +94,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-
+    @categories = ProductCategory.all.where(product: @product.id)
   end
 
   # GET /products/new
@@ -122,7 +122,7 @@ class ProductsController < ApplicationController
           productCategory = ProductCategory.new(product: @product, category: c)
           productCategory.save
         end
-        
+
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else

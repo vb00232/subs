@@ -5,3 +5,14 @@
 <%= image_tag(@product.image, class: "productImage")%>
 <% end %>
 <p><%= @product.description %></p>
+<p> <%= @categories %>
+
+<p>
+  <% if @categories %>
+    <% @categories.each do |category| %>
+      <p><%= category.name %></p>
+    <% end %>
+  <% else %>
+    <p> No categories </p>
+  <% end %>
+<p>
