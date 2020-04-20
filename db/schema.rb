@@ -49,13 +49,12 @@ ActiveRecord::Schema.define(version: 2020_04_19_133923) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.decimal "price"
-    t.text "description"
-    t.datetime "created_at", null: true
-    t.datetime "updated_at", null: true
-    t.integer "user_id", null: true
-    t.integer "category"
+    t.string "name", null: false
+    t.decimal "price", default: "0.0"
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 

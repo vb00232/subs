@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :name, :price,:category, :description, presence: true
+  validates :name, :price, :description, presence: true
   validates :name, length: { minimum: 5 }
   validates :price, numericality: { greater_than: 0, less_than_or_equal_to: 10000 }
   validate :image_type
@@ -22,10 +22,11 @@ class Product < ApplicationRecord
   def image_type
      if image.attached? == false
        errors.add(:image, "is missing!")
-     end
-     if !image.content_type.in?(%('image/jpeg image/png'))
-       errors.add(:image, "needs to be a jpeg or png!")
-     end
+     else
+       if !image.content_type.in?(%('image/jpeg image/png'))
+         errors.add(:image, "needs to be a jpeg or png!")
+       end
+    end
   end
 
 
