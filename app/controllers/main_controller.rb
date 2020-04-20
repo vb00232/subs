@@ -7,7 +7,7 @@ class MainController < ApplicationController
       @categoryNames.append(c.name)
     end
     if @categoryNames.empty?
-      @categoryNames.append("Run rake:db seed in console to load categories")
+      @categoryNames.append("Run rake:db seed in controller to load categories")
     end
 
     # Keyword from search bar
