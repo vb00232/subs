@@ -117,10 +117,12 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.save
         # Adds a product's categories to database
-        categories_selected = params[:categories_selected][:selected]
-        for c in categories_selected do
-          productCategory = ProductCategory.new(product: @product, category: c)
-          productCategory.save
+        if params.has_key?(:categories_selected)
+          categories_selected = params[:categories_selected][:selected]
+          for c in categories_selected do
+            productCategory = ProductCategory.new(product: @product, category: c)
+            productCategory.save
+          end
         end
 
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
