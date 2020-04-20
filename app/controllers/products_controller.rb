@@ -139,6 +139,16 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1.json
   def update
     product = Product.find(params[:id])
+    # Updates a product's category
+    if params.has_key?(:categories_selected)
+      categories_selected = params[:categories_selected][:selected]
+      ProductCategory.where(product: product).destroy_all
+      for c in categories_selected do
+          productCategory = ProductCategory.new(product: product, category: c)
+          productCategory.save
+      end
+    end
+
     if product.update(product_params)
       redirect_to products_path
     else
