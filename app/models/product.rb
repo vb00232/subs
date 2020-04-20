@@ -7,9 +7,7 @@ class Product < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  enum category: [:art, :books, :clothes, :electronics, :event_tickets, :furniture, :h_and_b, :jewelery, :v_g_and_c]
-
-  validates :name, :price, :description, presence: true
+  validates :name, :price,:category, :description, presence: true
   validates :name, length: { minimum: 5 }
   validates :price, numericality: { greater_than: 0, less_than_or_equal_to: 10000 }
   validate :image_type

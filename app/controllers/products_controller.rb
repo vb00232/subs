@@ -6,6 +6,16 @@ class ProductsController < ApplicationController
   # GET /products.json
 
   def index
+    # Gets a list of all categories
+    categories = Category.all
+    @categoryNames = Array.new
+    for c in categories do
+      @categoryNames.append(c.name)
+    end
+    if @categoryNames.empty?
+      @categoryNames.append("Run rake:db seed in console to load categories")
+    end
+
     # Keyword from search bar
     query = params[:query]
     sort = params[:sort]
@@ -84,12 +94,13 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-
+    @categories = ProductCategory.all.where(product: @product.id)
   end
 
   # GET /products/new
   def new
     @product = Product.new
+    @categories = Category.all
   end
 
   # GET /products/1/edit
@@ -101,9 +112,17 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    @categories = Category.all
 
     respond_to do |format|
       if @product.save
+        # Adds a product's categories to database
+        categories_selected = params[:categories_selected][:selected]
+        for c in categories_selected do
+          productCategory = ProductCategory.new(product: @product, category: c)
+          productCategory.save
+        end
+
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
