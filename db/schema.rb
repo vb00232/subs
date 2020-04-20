@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2020_04_17_122447) do
     t.string "name"
     t.decimal "price"
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
+    t.datetime "created_at", null: true
+    t.datetime "updated_at", null: true
+    t.integer "user_id", null: true
     t.integer "category"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
