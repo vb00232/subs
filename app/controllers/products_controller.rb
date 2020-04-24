@@ -95,6 +95,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @categories = ProductCategory.all.where(product: @product.id)
+
   end
 
   # GET /products/new

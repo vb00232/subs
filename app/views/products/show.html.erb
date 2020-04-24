@@ -5,6 +5,7 @@
 <%= image_tag(@product.image, class: "productImage")%>
 <% end %>
 <p><%= @product.description %></p>
+  <%= link_to favorite_text,favorites_show_path(product: @product), id: 'favorite_link', remote: true %>
 <p> <%= @categories %>
 
 <p>

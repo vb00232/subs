@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
       def after_sign_in_path_for(resource)
         stored_location_for(resource) || listings_path
       end
+      def favorite_text
+      return @favorite_exists ? "Unfavorite" : "Unfavorite"
+    end
+
+    helper_method :favorite_text
 end

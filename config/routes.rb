@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'favorites/show'
   namespace :user do
     root :to => 'main#main'
   end
