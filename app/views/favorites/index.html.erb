@@ -4,23 +4,11 @@
 <%= render 'shared/sortby' %>
 
 <div class="usersellingtable">
-  <% current_user.favorites.each do |favorite| %>
-  <%= link_to favorite.post.title, favorite.post %>
-    <div class="Wishlist">
-      <%# Prevents errors if no image found %>
-      <% if product.image.attached? %>
-        <%= link_to image_tag(product.image, class: "productImage"), product_path(product.id) %>
-      <% else %>
-        <%= link_to image_tag("Icon.png", class: "productImage"), product_path(product.id) %>
-      <% end %>
-      <div class="about">
-        <p><%= product.name %></p>
-        <p><%= product.description %></p>
-        <p><%= number_to_currency(product.price, :unit => "£") %></p>
-      </div>
-      <div class="options">
-        <%= link_to image_tag("/assets/deleteicon.png", :alt => "delete icon", :class => "icon"), product_path(product.id), data: {method: :delete, confirm: "Are you sure?"} %>
-      </div>
-    </div>
+  <%# current_user.favorites.each do |favorite| %>
+  <%# Use the class varaible %>
+  <% @favorites.each do |favourite| %>
+    <%# Gets the asociated product %>
+    <% product = Product.product_id(favourite.product).first %>
+    <%= link_to product.name, product_path(product.id) %>
   <% end %>
 </div>
