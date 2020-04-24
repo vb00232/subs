@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'favorites/show'
+  get 'wishlist' => 'favorites#index'
   namespace :user do
     root :to => 'main#main'
   end

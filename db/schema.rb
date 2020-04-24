@@ -41,11 +41,11 @@ ActiveRecord::Schema.define(version: 2020_04_24_164445) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "product_id"
-    t.integer "uesr_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_favorites_on_product_id"
-    t.index ["uesr_id"], name: "index_favorites_on_uesr_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "product_categories", force: :cascade do |t|

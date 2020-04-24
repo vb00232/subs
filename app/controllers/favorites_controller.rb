@@ -1,6 +1,9 @@
 class FavoritesController < ApplicationController
-  def show
-      @favorite_exists = Favorite.where(product: Product.find(params[:id]), user: current_user) ==[] ? false :true
+
+  # Changed to index from show
+  def index
+    #@favorite_exists = Favorite.where(product: Product.find(params[:id]), user: current_user) ==[] ? false :true
+      @favorite_exists = Favorite.where(user: current_user)
   end
 
   def update
