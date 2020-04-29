@@ -1,18 +1,22 @@
 class MainController < ApplicationController
 
   def main
+    # Gets category names for drop down
     categories = Category.all
     @categoryNames = Array.new
     for c in categories do
       @categoryNames.append(c.name)
     end
     if @categoryNames.empty?
-      @categoryNames.append("Run rake:db seed in controller to load categories")
+      @categoryNames.append("Run rake db:seed in command line")
     end
 
     # Keyword from search bar
     query = params[:query]
+    # Price / new listing sorting filter
     sort = params[:sort]
+    # Category filter
+    cat = params[:category]
 
     # Checks if search query is present
     if query && query != ""
@@ -39,8 +43,29 @@ class MainController < ApplicationController
     elsif sort == t('sortby.newlistings')
       @products = @products.order("products.created_at DESC")
     elsif sort == t('sortby.oldlistings')
-        @products = @products.order("products.created_at ASC")
+      @products = @products.order("products.created_at ASC")
     end
+
+    # Checks that a category is present in url and that one has been selected
+    if cat && cat != t('categories.unselected')
+      # Finds the category record using the name passed in by the url
+      category_record = Category.find_by_name(cat).first
+      new_products = []
+      # Iterates through all products found so far
+      for product in @products
+        # Finds categories associated with each product
+        product_cats = ProductCategory.find_category(product)
+        flash[:alert] = product_cats.size
+        for c in product_cats
+          if c.category == category_record
+            new_products.append(product)
+          end
+        end
+      end
+      @products = new_products
+    end
+
+
   end
 
 end
