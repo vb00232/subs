@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 2020_04_24_164445) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name", null: false
-    t.decimal "price", default: "0.0"
-    t.text "description", null: false
+    t.string "name"
+    t.decimal "price"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false

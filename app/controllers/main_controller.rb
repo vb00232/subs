@@ -1,11 +1,19 @@
 class MainController < ApplicationController
 
   def main
+
+    #Please feel free to optimise this -----added by Sam
+    categories_products = Hash.new { |hash, key| hash[key] = [] }
+
+
+
     # Gets category names for drop down
     categories = Category.all
     @categoryNames = Array.new
     for c in categories do
-      @categoryNames.append(c.name)
+      catName = c.name
+      categories_products["#{catName}"] = Array.new
+      @categoryNames.append(catName)
     end
     if @categoryNames.empty?
       @categoryNames.append("Run rake db:seed in command line")
@@ -34,6 +42,14 @@ class MainController < ApplicationController
     # If no query, display all products
     else
       @products = Product.all
+      #Please feel free to optimise this -----added by Sam
+      for product in @products
+        product_cats = ProductCategory.find_category(product)
+        #just take the first category its a part of prob don't want to add them to all
+        productFirstCategoryName = (Category.find_by_id(product_cats[0].category_id)).name
+        categories_products["#{productFirstCategoryName}"] << product
+      end
+      @categories_products = categories_products
     end
 
     if sort == t('sortby.lowtohigh')
