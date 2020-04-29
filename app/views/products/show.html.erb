@@ -8,6 +8,10 @@
 
 <%= link_to favorite_text, wishlist_path(product: @product), id: 'favorite_link'%>
 
+<p> Seller:
+  <%= link_to @product.user.firstname, products_path(user: @product.user), id: 'user_link' %>
+</p>
+
 <p>
   <p> Categories: </p>
   <% if @categories && @categories != []%>
