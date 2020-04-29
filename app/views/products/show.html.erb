@@ -7,10 +7,10 @@
 <p><%= @product.description %></p>
 
 <%= link_to favorite_text, wishlist_path(product: @product), id: 'favorite_link'%>
-<p> <%= @categories %>
 
 <p>
-  <% if @categories %>
+  <p> Categories: </p>
+  <% if @categories && @categories != []%>
     <% @categories.each do |category| %>
       <p><%= category.name %></p>
     <% end %>

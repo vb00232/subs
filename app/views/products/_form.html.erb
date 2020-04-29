@@ -29,13 +29,13 @@
     <%= f.label :category %>
     <% if @categories.empty? %>
       <tr>
-        <td><%= check_box("categories_selected", "selected[]", { multiple: true }, 1, nil) %>
+        <td><%= check_box("categories_selected", "selected", { multiple: true }, 1, nil) %>
           <td>You need to run rake db:seed on the command line to add categories</td>
       </tr>
     <% else %>
       <% @categories.each do |category| %>
         <tr>
-          <td><%= check_box("categories_selected", "selected[]", { multiple: true }, category.id, nil) %>
+          <td><%= check_box("categories_selected", "selected", { multiple: true }, category.id, nil) %>
             <td><%= category.name %></td>
           </tr>
         <% end %>
