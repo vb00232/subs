@@ -46,7 +46,7 @@ class MainController < ApplicationController
       for product in @products
         product_cats = ProductCategory.find_category(product)
         #just take the first category its a part of prob don't want to add them to all
-        productFirstCategoryName = (Category.find_by_id(product_cats[0].category_id)).name
+        productFirstCategoryName = (Category.find_by_id(product_cats[0].category_id)).first.name
         categories_products["#{productFirstCategoryName}"] << product
       end
       @categories_products = categories_products
