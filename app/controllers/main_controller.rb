@@ -74,7 +74,6 @@ class MainController < ApplicationController
       for product in @products
         # Finds categories associated with each product
         product_cats = ProductCategory.find_category(product)
-        flash[:alert] = product_cats.size
         for c in product_cats
           if c.category == category_record
             new_products.append(product)
