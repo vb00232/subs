@@ -43,10 +43,13 @@ class MainController < ApplicationController
     else
       @products = Product.all
       #Please feel free to optimise this -----added by Sam
-      for product in @products
+      #wanted the most recent images to be displayed on main view listings page
+      @productsNew = Product.new_items
+      for product in @productsNew
         product_cats = ProductCategory.find_category(product)
         #just take the first category its a part of prob don't want to add them to all
         productFirstCategoryName = (Category.find_by_id(product_cats[0].category_id)).first.name
+        #add product to category hash
         categories_products["#{productFirstCategoryName}"] << product
       end
       @categories_products = categories_products

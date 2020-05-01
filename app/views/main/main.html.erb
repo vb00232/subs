@@ -9,12 +9,20 @@
   <% elsif !@categories_products.empty? %>
     <section class="categoriesProducts">
     <% @categoryNames.each do |catName| %>
-      <h2><%= catName %></h2>
+      <h2 class="catTitle"><%= catName %></h2>
+      <% if !@categories_products["#{catName}"].empty? %>
+        <%= link_to '#', class: 'seeAllLink' do %>
+          See all <%= image_tag('seeAll.png') %>
+        <% end %>
+      <% end %>
       <div class="carousel-container">
         <div class="carousel-inner">
-          <div class="track">
-            <% if !@categories_products["#{catName}"].empty? %>
-              <% @categories_products["#{catName}"].each do |product| %>
+          <% if !@categories_products["#{catName}"].empty? %>
+            <%# Makes sure each track is unique, used category name to do this %>
+            <div class=<%="track#{catName.downcase.delete(' ')}"%>>
+              <% @categories_products["#{catName}"].last(10).reverse.each do |product| %>
+              <%# Get 10 most recent items for each category %>
+              <%# 5 displayed on page and click button to view next 5 %>
                 <div class="item-container">
                   <div class="item">
                     <div class="img">
@@ -31,15 +39,15 @@
                   </div>
                 </div>
               <% end %>
-            <% else %>
-              <h4>No items found!</h4>
-            <% end %>
-          </div>
+            </div>
+          <% else %>
+            <h4>No items found!</h4>
+          <% end %>
         </div>
         <% if !@categories_products["#{catName}"].empty? && @categories_products["#{catName}"].length > 5 %>
           <div class="nav">
-            <button class="prev"><%= image_tag( "left-arrow.png") %></button>
-            <button class="next"><%= image_tag( "right-arrow.png") %></button>
+            <button class=<%="prev#{catName.downcase.delete(' ')}"%>><%= image_tag( "left-arrow.png") %></button>
+            <button class=<%="next#{catName.downcase.delete(' ')}"%>><%= image_tag( "right-arrow.png") %></button>
           </div>
         <% end %>
       </div>

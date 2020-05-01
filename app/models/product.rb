@@ -11,11 +11,15 @@ class Product < ApplicationRecord
   validates :name, length: { minimum: 5 }
   validates :price, numericality: { greater_than: 0, less_than_or_equal_to: 10000 }
   validate :image_type
+
   # Finds all products belonging to a user
   scope :user_products, -> (user) { where(['user_id=?', user]) }
 
   # Finds products based on id
   scope :product_id, -> (product_id) { where('id=?', product_id) }
+
+  # Finds new items for the carousel
+  scope :new_items, -> { where('created_at > ?', Time.current - 1.weeks) }
 
   private
 

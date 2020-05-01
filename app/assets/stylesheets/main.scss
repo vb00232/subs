@@ -7,14 +7,38 @@ $darkGrey: #525252;
 
 .categoriesProducts{
   margin: 50px 50px;
+  .catTitle{
+    display: inline;
+    margin: 0;
+  }
+  .seeAllLink{
+    display: inline;
+    color: #525252;
+    font-size: 22px;
+    border-left: 1px solid #e5e5e5;
+    margin-left: 20px;
+    padding-left: 20px;
+    position: relative;
+    top: -1px;
+    img{
+      height: 20px;
+      margin-left: 5px;
+      margin-bottom: 3px;
+    }
+  }
   .carousel-container{
     width:100%;
-    margin: 40px 0px;
+    margin-top: 20px;
+    margin-bottom: 40px;
     min-height: 200px;
     position: relative;
     .carousel-inner{
       overflow: hidden;
-      .track{
+      .trackart, .trackbooks, .trackclothes,
+      .trackelectronics, .trackeventtickets,
+      .trackfurniture, .trackhealthandbeauty,
+      .trackjewelry, .trackvideogamesandconsoles{
+        transition: transform 0.5s;
         display: flex;
         .item-container{
           width: 20%;
@@ -56,10 +80,20 @@ $darkGrey: #525252;
           height: 20px;
         }
       }
-      .prev{
-        left: -30px;
+      button:hover{
+        background-color: $lightGrey;
       }
-      .next{
+      .prevart, .prevbooks, .prevclothes,
+      .prevelectronics, .preveventtickets,
+      .prevfurniture, .prevhealthandbeauty,
+      .prevjewelry, .prevvideogamesandconsoles{
+        left: -30px;
+        display: none;
+      }
+      .nextvart, .nextbooks, .nextclothes,
+      .nextelectronics, .nexteventtickets,
+      .nextfurniture, .nexthealthandbeauty,
+      .nextjewelry, .nextvideogamesandconsoles{
         right: -15px;
       }
     }
