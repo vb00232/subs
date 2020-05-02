@@ -5,18 +5,9 @@ class MainController < ApplicationController
     #Please feel free to optimise this -----added by Sam
     categories_products = Hash.new { |hash, key| hash[key] = [] }
 
-
-
-    # Gets category names for drop down
-    categories = Category.all
-    @categoryNames = Array.new
-    for c in categories do
-      catName = c.name
-      categories_products["#{catName}"] = Array.new
-      @categoryNames.append(catName)
-    end
-    if @categoryNames.empty?
-      @categoryNames.append("Run rake db:seed in command line")
+    # @categoryNames is set up in the ApplicationController
+    for name in @categoryNames do
+      categories_products["#{name}"] = Array.new
     end
 
     # Keyword from search bar
