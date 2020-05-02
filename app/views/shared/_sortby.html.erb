@@ -1,6 +1,18 @@
 <div class="sortby">
   <% # Sorting of products %>
   <%= form_tag href=request.original_url, method: :get, class: "navbar-form", role: "search" do %>
+
+      <% # Preserves parameters %>
+      <% if params.has_key?(:user) %>
+        <%= hidden_field_tag :user, params[:user] %>
+      <% end %>
+      <% if params.has_key?(:query) %>
+        <%= hidden_field_tag :query, params[:query] %>
+      <% end %>
+      <% if params.has_key?(:category) %>
+        <%= hidden_field_tag :category, params[:category] %>
+      <% end %>
+
       <li>
         <%= select_tag :sort, options_for_select([t('sortby.featured'),
         t('sortby.lowtohigh'), t('sortby.hightolow'),

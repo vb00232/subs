@@ -62,6 +62,7 @@ class MainController < ApplicationController
         end
         @products = new_products
       end
+
     # If no parameters given, default to showing categories
     else
       #Please feel free to optimise this -----added by Sam
