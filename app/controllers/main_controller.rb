@@ -36,6 +36,16 @@ class MainController < ApplicationController
         @products = Product.all
       end
 
+      if sort == t('sortby.lowtohigh')
+        @products = @products.order("products.price ASC")
+      elsif sort == t('sortby.hightolow')
+        @products = @products.order("products.price DESC")
+      elsif sort == t('sortby.newlistings')
+        @products = @products.order("products.created_at DESC")
+      elsif sort == t('sortby.oldlistings')
+        @products = @products.order("products.created_at ASC")
+      end
+
       # Checks that a category is present in url and that one has been selected
       if cat && cat != t('categories.unselected')
         # Finds the category record using the name passed in by the url
