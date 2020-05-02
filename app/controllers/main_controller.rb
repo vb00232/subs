@@ -62,6 +62,8 @@ class MainController < ApplicationController
           end
         end
         @products = new_products
+        # Allows category name to be displayed
+        @category = cat
       end
 
     # If no parameters given, default to showing categories

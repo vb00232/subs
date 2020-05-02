@@ -54,6 +54,9 @@
     <% if @products.empty? %>
       <h2>No products found</h2>
     <% else %>
+      <% unless @category.nil? %>
+        <h2> <%= @category %> </h2>
+      <% end %>
       <%# Sorting of products %>
       <%= render 'shared/sortby' %>
 
