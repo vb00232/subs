@@ -26,19 +26,19 @@ $(document).ready(function() {
 
   $('#A2').hide();
   $('#q2').click(function(){
-    $('#A2').show();
+    $('#A2').toggle();
   });
   $('#A3').hide();
   $('#q3').click(function(){
-    $('#A3').show();
+    $('#A3').toggle();
   });
   $('#A4').hide();
   $('#q4').click(function(){
-    $('#A4').show();
+    $('#A4').toggle();
   });
   $('#A5').hide();
   $('#q5').click(function(){
-    $('#A5').show();
+    $('#A5').toggle();
   });
 });
 
