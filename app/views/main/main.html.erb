@@ -1,47 +1,89 @@
 <h1>Listings</h1>
 
-<%# Sorting of products %>
-<%= render 'shared/sortby' %>
-
-<% unless @products.nil? %>
-  <% if @products.empty? %>
-    <h2>No products found</h2>
-  <% else %>
-    <% unless @query.nil? %>
-      <h2>Search results for "<%=@query%>"</h2>
-    <% end %>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Image</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @products.each do |product| %>
-        <tr>
-          <td>
-            <%= link_to product.name, product %>
-          </td>
-          <td>
-            <%= product.price %>
-          </td>
-          <td>
-            <% if product.image.attached? %>
-              <%= link_to image_tag(product.image, class: "productImage"), product_path(product.id) %>
-            <% else %>
-              <%= link_to image_tag("Icon.png", class: "productImage"), product_path(product.id) %>
-            <% end %>
-          </td>
-        </tr>
+<%# Default display showing all categories %>
+<% if @categories_products %>
+    <% if !@categories_products.empty? %>
+    <section class="categoriesProducts">
+    <% @categoryNames.each do |catName| %>
+      <h2 class="catTitle"><%= catName %></h2>
+      <% if !@categories_products["#{catName}"].empty? %>
+        <%= link_to "See all #{image_tag('seeAll.png')}".html_safe, listings_path(category: catName), class: 'seeAllLink' %>
+      <% end %>
+      <div class="carousel-container">
+        <div class="carousel-inner">
+          <% if !@categories_products["#{catName}"].empty? %>
+            <%# Makes sure each track is unique, used category name to do this %>
+            <div class=<%="track#{catName.downcase.delete(' ')}"%>>
+              <% @categories_products["#{catName}"].last(10).reverse.each do |product| %>
+              <%# Get 10 most recent items for each category %>
+              <%# 5 displayed on page and click button to view next 5 %>
+                <div class="item-container">
+                  <div class="item">
+                    <div class="img">
+                      <% if product.image.attached? %>
+                        <%= link_to image_tag(product.image, class: "productImage"), product_path(product.id) %>
+                      <% else %>
+                        <%= link_to image_tag("Icon.png", class: "productImage"), product_path(product.id) %>
+                      <% end %>
+                    </div>
+                    <div class="info">
+                      <p><%= product.name %></p>
+                      <p><%= number_to_currency(product.price, :unit => "£") %></p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <h4>No items found!</h4>
+          <% end %>
+        </div>
+        <% if !@categories_products["#{catName}"].empty? && @categories_products["#{catName}"].length > 5 %>
+          <div class="nav">
+            <button class=<%="prev#{catName.downcase.delete(' ')}"%>><%= image_tag( "left-arrow.png") %></button>
+            <button class=<%="next#{catName.downcase.delete(' ')}"%>><%= image_tag( "right-arrow.png") %></button>
+          </div>
         <% end %>
-      </tbody>
-    </table>
+      </div>
+    <% end %>
+    <% end %>
+    </section>
+<%# Display to show a query and or products in a category %>
+<% else %>
+  <% unless @products.nil? %>
+    <% if @products.empty? %>
+      <h2>No products found</h2>
+    <% else %>
+      <% unless @category.nil? %>
+        <h2> <%= @category %> </h2>
+      <% end %>
+      <%# Sorting of products %>
+      <%= render 'shared/sortby' %>
+
+      <%# Displays message for query  %>
+      <% unless @query.nil? %>
+        <h2>Search results for "<%=@query%>"</h2>
+      <% end %>
+      <div class="item-container">
+        <% @products.each do |product| %>
+          <div class="item">
+            <div class="img">
+              <% if product.image.attached? %>
+                <%= link_to image_tag(product.image, class: "productImage"), product_path(product.id) %>
+              <% else %>
+                <%= link_to image_tag("Icon.png", class: "productImage"), product_path(product.id) %>
+              <% end %>
+            </div>
+            <div class="info">
+              <p><%= product.name %></p>
+              <p><%= number_to_currency(product.price, :unit => "£") %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
+
 <br/>
 <%= link_to 'New Product', new_product_path %>

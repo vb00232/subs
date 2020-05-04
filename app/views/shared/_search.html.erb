@@ -2,12 +2,17 @@
   <% # Search bar %>
   <%= form_tag href="/main", method: :get, class: "navbar-form", role: "search" do %>
       <li>
-        <%= select_tag 'category', options_for_select([ t('categories.unselected'),
-        t('categories.art'), t('categories.books'), t('categories.clothes'),
-        t('categories.electronics'), t('categories.tickets'),
-        t('categories.furniture'), t('categories.health_and_beauty'),
-        t('categories.jewelry'), t('categories.games'),
-        t('categories.other')], t('categories.unselected')), class: "productCategories" %>
+        <% # Checks if categories found %>
+        <% if @categoryNames && @categoryNames != [] %>
+          <% # Dyamically creates selection tag using category names %>
+          <% # Unselected is default value %>
+          <%= select_tag 'category',
+          options_for_select([t('categories.unselected')] + @categoryNames,
+          t('categories.unselected')), class: "productCategories" %>
+        <% else %>
+          <%= select_tag 'category', options_for_select(['No categories found (only works on view listings at moment as made dynamic)']),
+          class: "productCategories" %>
+        <% end %>
         <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search..."%>
         <%= image_submit_tag("/assets/SearchIcon.png", class: "btn btn-default searchButton", style: "height: 35px; margin:0;") %>
       </li>

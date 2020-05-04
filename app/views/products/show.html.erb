@@ -5,10 +5,16 @@
 <%= image_tag(@product.image, class: "productImage")%>
 <% end %>
 <p><%= @product.description %></p>
-<p> <%= @categories %>
+
+<%= link_to favorite_text, wishlist_path(product: @product), id: 'favorite_link'%>
+
+<p> Seller:
+  <%= link_to @product.user.firstname, products_path(user: @product.user), id: 'user_link' %>
+</p>
 
 <p>
-  <% if @categories %>
+  <p> Categories: </p>
+  <% if @categories && @categories != []%>
     <% @categories.each do |category| %>
       <p><%= category.name %></p>
     <% end %>

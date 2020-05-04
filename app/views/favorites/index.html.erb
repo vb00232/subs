@@ -1,0 +1,14 @@
+<h2>Wish List</h2>
+
+<%# Sorting of products %>
+<%= render 'shared/sortby' %>
+
+<div class="usersellingtable">
+  <%# current_user.favorites.each do |favorite| %>
+  <%# Use the class varaible %>
+  <% @favorites.each do |favourite| %>
+    <%# Gets the asociated product %>
+    <% product = Product.product_id(favourite.product).first %>
+    <%= link_to product.name, product_path(product.id) %>
+  <% end %>
+</div>

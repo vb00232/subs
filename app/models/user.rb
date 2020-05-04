@@ -8,4 +8,5 @@ class User < ApplicationRecord
    validates :firstname, :lastname, presence: true
 
    has_many :products, dependent: :destroy
+   has_many :favorites, dependent: :destroy
 end

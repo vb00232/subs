@@ -94,7 +94,16 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @categories = ProductCategory.all.where(product: @product.id)
+    # Finds ProductCategory relations for the product
+    productsCategories = ProductCategory.find_category(@product.id)
+    # Category names
+    @categories = []
+    for c in productsCategories do
+      cat = Category.find_by_id(c.category)
+      unless cat.empty?
+        @categories.append(cat.first)
+      end
+    end
   end
 
   # GET /products/new
@@ -105,6 +114,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /products
@@ -117,10 +127,16 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.save
         # Adds a product's categories to database
-        categories_selected = params[:categories_selected][:selected]
-        for c in categories_selected do
-          productCategory = ProductCategory.new(product: @product, category: c)
-          productCategory.save
+        if params.has_key?(:categories_selected)
+          # Gets categories from url parameters
+          categories_selected = params[:categories_selected][:selected]
+          for c in categories_selected do
+            # Finds a category based upon its id given in params
+            cat = Category.find_by_id(c).first
+            # Creates a new category
+            productCategory = ProductCategory.new(product: @product, category: cat)
+            productCategory.save
+          end
         end
 
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -136,6 +152,16 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1.json
   def update
     product = Product.find(params[:id])
+    # Updates a product's category
+    if params.has_key?(:categories_selected)
+      categories_selected = params[:categories_selected][:selected]
+      ProductCategory.where(product: product).destroy_all
+      for c in categories_selected do
+          productCategory = ProductCategory.new(product: product, category: c)
+          productCategory.save
+      end
+    end
+
     if product.update(product_params)
       redirect_to products_path
     else

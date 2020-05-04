@@ -16,13 +16,20 @@
     margin-bottom: 40px;
     padding-bottom: 20px;
     border-bottom: 2px solid $lightGrey;
-    img {
-      border: 1px solid $darkGrey;
+    .image-container-mylistings {
+      height: 150px;
+      width: 150px;
+      img {
+        border: 1px solid $darkGrey;
+      }
     }
     .about{
       display: inline-block;
       margin-left: 30px;
       width: 60%;
+      p:first-child{
+        font-size: 16px;
+      }
     }
     .options{
       margin-left: auto;
