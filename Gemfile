@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 gem 'searchkick'
 gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'modernizr-rails'
 gem 'bootstrap', '~> 4.1.1'

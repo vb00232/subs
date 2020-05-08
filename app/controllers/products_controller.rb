@@ -52,43 +52,6 @@ class ProductsController < ApplicationController
     elsif sort == t('sortby.oldlistings')
         @products = @products.order("products.created_at ASC")
     end
-
-  end
-
-  # def index
-  #   query = params[:query]
-  #   # Checks if search query is present
-  #   if query
-  #     #Search for multi-query fields on the selected indexed fields
-  #     response = Product.__elasticsearch__.search(
-  #       query: {
-  #         multi_match: {
-  #           query: params[:query],
-  #           fields: ['name', 'description', 'price']
-  #         }
-  #       }
-  #     ).results
-  #
-  #     # JSON layout to display products
-  #     render json: {
-  #       results: response.results,
-  #       total: response.total
-  #     }
-  #   # If no query, displays a user's products
-  #   else
-  #     @products = Product.user_products(current_user)
-  #   end
-  # end
-
-  def search_query(query)
-    self.__elasticsearch__.search(
-      query: {
-        multi_match: {
-          query: params[:query],
-          fields: ['name', 'description']
-        }
-      }
-    ).results
   end
 
   # GET /products/1

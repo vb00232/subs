@@ -1,8 +1,8 @@
 class Product < ApplicationRecord
   # Allows searching of products
+  # app/models/concerns/searchable.rb
   include Searchable
-
-  searchkick
+  
 
   belongs_to :user
   has_one_attached :image
