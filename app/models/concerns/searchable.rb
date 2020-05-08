@@ -32,12 +32,12 @@ module Searchable
    settings index: { analysis: {
      analyzer: {
        # Define a custom analyzer
-       autocomplete: {
-         # Type is custom analyzer
+       product_analyzer: {
          type: :custom,
+
          # Standard tokenizer
          tokenizer: :standard,
-         # Apply two lowercase and autocomplete token filters
+         # Apply token filters
          filter: %i[lowercase autocomplete]
        },
        filter: {
@@ -52,9 +52,9 @@ module Searchable
      }
      } } do
      mappings dynamic: false do
-       # Use name as an index with the custom autocomplete analyzer
-       indexes :name, type: :text, analyzer: :autocomplete
-       #indexes :description, type: :text
+       # Use name as an index with the custom analyzer
+       indexes :name, type: :text, analyzer: :product_analyzer
+       indexes :description, type: :text
      end
    end
 
@@ -65,9 +65,6 @@ module Searchable
      end
 
      @search_definition = {
-       # Return no more than 5 documents (products)
-       # NEEDS CHANGING, BUT KEEP FOR NOW
-       size: 5,
        # Defines an empty query
        query: {
            bool: {
