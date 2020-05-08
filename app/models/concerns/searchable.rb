@@ -28,51 +28,48 @@ module Searchable
    #   ).results
    # end
 
-   settings index: { number_of_shards: 1 } do
+   # Index configuration
+   settings index: { analysis: {
+     analyzer: {
+       # Define a custom analyzer
+       autocomplete: {
+         # Type is custom analyzer
+         type: :custom,
+         # Standard tokenizer
+         tokenizer: :standard,
+         # Apply two lowercase and autocomplete token filters
+         filter: %i[lowercase autocomplete]
+       },
+       filter: {
+         # Defining a custom token filter
+         autocomplete: {
+           # Splits text into n-grams
+           type: :edge_ngram,
+           min_gram: 2,
+           max_gram: 25
+         }
+       }
+     }
+     } } do
      mappings dynamic: false do
-       # Use the custom autocomplete analyzer
-       indexes :name,  type: :text, analyzer: :autocomplete
+       # Use name as an index with the custom autocomplete analyzer
+       indexes :name, type: :text, analyzer: :autocomplete
        #indexes :description, type: :text
      end
    end
 
-   # def settings_attributes
-   #
-   #   index: {
-   #     analysis: {
-   #       analyzer: {
-   #         # Define a custom analyzer
-   #         autocomplete: {
-   #           # Type is custom analyzer
-   #           type: :custom,
-   #           # Standard tokenizer
-   #           tokenizer: :standard,
-   #           # Apply two lowercase and autocomplete token filters
-   #           filter: %i[lowercase autocomplete]
-   #         },
-   #         filter: {
-   #           # Defining a custom token filter
-   #           autocomplete: {
-   #             type: :edge_ngram,
-   #             min_gram: 2,
-   #             max_gram: 25
-   #           }
-   #         }
-   #       }
-   #     }
-   #   }
-   #
-   # end
-
    def self.search_query(query)
-     # Sets search filters
+     # Adds conditions to a search definition
      set_filters = lambda do |context_type, filter|
        @search_definition[:query][:bool][context_type] |= [filter]
      end
 
      @search_definition = {
-         size: 5,
-         query: {
+       # Return no more than 5 documents (products)
+       # NEEDS CHANGING, BUT KEEP FOR NOW
+       size: 5,
+       # Defines an empty query
+       query: {
            bool: {
              must: [],
              should: [],
@@ -89,14 +86,11 @@ module Searchable
          match: {
            name: {
              query: query,
+             # Number of typos that can be made
              fuzziness: 1
            }
          })
      end
-
-     # if filters[:description].present?
-     #   set_filters.call(:filter, term: { description: filters[:description] })
-     # end
 
      Product.__elasticsearch__.search(@search_definition).results
    end

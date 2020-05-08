@@ -104,6 +104,7 @@ GEM
       activesupport (> 3)
       elasticsearch (> 1)
       hashie
+    elasticsearch-rails (7.1.0)
     elasticsearch-transport (7.5.0)
       faraday (>= 0.14, < 1)
       multi_json
@@ -324,6 +325,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   elasticsearch-model
+  elasticsearch-rails
   haml-rails
   image_processing (~> 1.2)
   jbuilder (~> 2.5)
