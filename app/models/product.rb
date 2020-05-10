@@ -2,10 +2,13 @@ class Product < ApplicationRecord
   # Allows searching of products
   # app/models/concerns/searchable.rb
   include Searchable
-  
+
 
   belongs_to :user
   has_one_attached :image
+  has_many :product_category, dependent: :destroy
+  has_many :user_wishlist, dependent: :destroy
+  has_many :favorite, dependent: :destroy
 
   validates :name, :price, :description, presence: true
   validates :name, length: { minimum: 5 }
