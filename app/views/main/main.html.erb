@@ -2,52 +2,48 @@
 
 <%# Default display showing all categories %>
 <% if @categories_products %>
-    <% if !@categories_products.empty? %>
-    <section class="categoriesProducts">
-    <% @categoryNames.each do |catName| %>
-      <h2 class="catTitle"><%= catName %></h2>
-      <% if !@categories_products["#{catName}"].empty? %>
-        <%= link_to "See all #{image_tag('seeAll.png')}".html_safe, listings_path(category: catName), class: 'seeAllLink' %>
-      <% end %>
-      <div class="carousel-container">
-        <div class="carousel-inner">
-          <% if !@categories_products["#{catName}"].empty? %>
-            <%# Makes sure each track is unique, used category name to do this %>
-            <div class=<%="track#{catName.downcase.delete(' ')}"%>>
-              <% @categories_products["#{catName}"].last(10).reverse.each do |product| %>
-              <%# Get 10 most recent items for each category %>
-              <%# 5 displayed on page and click button to view next 5 %>
-                <div class="item-container">
-                  <div class="item">
-                    <div class="img">
-                      <% if product.image.attached? %>
-                        <%= link_to image_tag(product.image, class: "productImage"), product_path(product.id) %>
-                      <% else %>
-                        <%= link_to image_tag("Icon.png", class: "productImage"), product_path(product.id) %>
-                      <% end %>
-                    </div>
-                    <div class="info">
-                      <p><%= product.name %></p>
-                      <p><%= number_to_currency(product.price, :unit => "£") %></p>
-                    </div>
-                  </div>
+  <section class="categoriesProducts">
+  <% @categoryNames.each do |catName| %>
+    <h2 class="catTitle"><%= catName %></h2>
+    <%= link_to "See all #{image_tag('seeAll.png')}".html_safe, listings_path(category: catName), class: 'seeAllLink' %>
+    <div class="carousel-container">
+      <div class="carousel-inner">
+        <div class=<%="track#{catName.downcase.delete(' ')}"%>>
+        <% if !@categories_products["#{catName}"].empty? %>
+          <%# Makes sure each track is unique, used category name to do this %>
+          <% @categories_products["#{catName}"].last(10).reverse.each do |product| %>
+          <%# Get 10 most recent items for each category %>
+          <%# 5 displayed on page and click button to view next 5 %>
+            <div class="item-container">
+              <div class="item">
+                <div class="img">
+                  <% if product.image.attached? %>
+                    <%= link_to image_tag(product.image, class: "productImage"), product_path(product.id) %>
+                  <% else %>
+                    <%= link_to image_tag("Icon.png", class: "productImage"), product_path(product.id) %>
+                  <% end %>
                 </div>
-              <% end %>
+                <div class="info">
+                  <p><%= product.name %></p>
+                  <p><%= number_to_currency(product.price, :unit => "£") %></p>
+                </div>
+              </div>
             </div>
-          <% else %>
-            <h4>No items found!</h4>
           <% end %>
-        </div>
-        <% if !@categories_products["#{catName}"].empty? && @categories_products["#{catName}"].length > 5 %>
-          <div class="nav">
-            <button class=<%="prev#{catName.downcase.delete(' ')}"%>><%= image_tag( "left-arrow.png") %></button>
-            <button class=<%="next#{catName.downcase.delete(' ')}"%>><%= image_tag( "right-arrow.png") %></button>
-          </div>
+        <% else %>
+          <h4 class=<%="noitemsfound#{catName.downcase.delete(' ')}"%>>No recent items found!</h4>
         <% end %>
+        </div>
       </div>
-    <% end %>
-    <% end %>
-    </section>
+      <% if !@categories_products["#{catName}"].empty? && @categories_products["#{catName}"].length > 5 %>
+        <div class="nav">
+          <button class=<%="prev#{catName.downcase.delete(' ')}"%>><%= image_tag( "left-arrow.png") %></button>
+          <button class=<%="next#{catName.downcase.delete(' ')}"%>><%= image_tag( "right-arrow.png") %></button>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  </section>
 <%# Display to show a query and or products in a category %>
 <% else %>
   <% unless @products.nil? %>

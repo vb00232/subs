@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
   get 'wishlist' => 'favorites#index'
   namespace :user do
     root :to => 'main#main'

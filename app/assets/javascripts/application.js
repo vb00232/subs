@@ -14,7 +14,7 @@
 //= require jquery3
 //= require rails-ujs
 //= require activestorage
-//= require_tree .
+//= require_tree ./channels
 
 //this keeps the footer at the bottom of the page
 $(document).ready(function() {

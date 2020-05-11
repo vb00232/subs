@@ -87,27 +87,34 @@ class ProductsController < ApplicationController
     @product.user = current_user
     @categories = Category.all
 
-    respond_to do |format|
-      if @product.save
-        # Adds a product's categories to database
-        if params.has_key?(:categories_selected)
-          # Gets categories from url parameters
-          categories_selected = params[:categories_selected][:selected]
-          for c in categories_selected do
-            # Finds a category based upon its id given in params
-            cat = Category.find_by_id(c).first
-            # Creates a new category
-            productCategory = ProductCategory.new(product: @product, category: cat)
-            productCategory.save
-          end
+    if @product.save
+      # Adds a product's categories to database
+      if params.has_key?(:categories_selected)
+        # Gets categories from url parameters
+        categories_selected = params[:categories_selected][:selected]
+        firstcategory = (Category.find_by_id(categories_selected[0]).first).name
+        for c in categories_selected do
+          # Finds a category based upon its id given in params
+          cat = Category.find_by_id(c).first
+          # Creates a new category
+          productCategory = ProductCategory.new(product: @product, category: cat)
+          productCategory.save
         end
-
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        ActionCable.server.broadcast 'products',
+          category: firstcategory,
+          prodid: @product.id,
+          prodname: @product.name,
+          prodprice: @product.price,
+          prodimage: @product.image
+        redirect_to "/products"
       end
+      # format.html { redirect_to @product, notice: 'Product was successfully created.' }
+      # format.json { render :show, status: :created, location: @product }
+    else
+      flash[:errors] = @product.errors.full_messages
+      redirect_back(fallback_location: root_path)
+      # format.html { render :new }
+      # format.json { render json: @product.errors, status: :unprocessable_entity }
     end
   end
 
