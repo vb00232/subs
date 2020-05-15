@@ -17,17 +17,6 @@ module Searchable
    )
    end
 
-   # def self.search_query(query)
-   #   Product.__elasticsearch__.search(
-   #     query: {
-   #       multi_match: {
-   #         query: query,
-   #         fields: ['name', 'description']
-   #       }
-   #     }
-   #   ).results
-   # end
-
    # Index configuration
    settings index: { analysis: {
      analyzer: {
@@ -38,7 +27,8 @@ module Searchable
          # Standard tokenizer
          tokenizer: :standard,
          # Apply token filters
-         filter: %i[lowercase autocomplete]
+         filter: %i[lowercase autocomplete],
+         char_filter: %i[punctuation]
        },
        filter: {
          # Defining a custom token filter
@@ -48,13 +38,19 @@ module Searchable
            min_gram: 2,
            max_gram: 25
          }
+       },
+       char_filter: {
+         punctuation: {
+           type: :mapping,
+           mappings: [".=>"]
+         }
        }
      }
      } } do
      mappings dynamic: false do
        # Use name as an index with the custom analyzer
        indexes :name, type: :text, analyzer: :product_analyzer
-       indexes :description, type: :text
+       indexes :description, type: :text, analyzer: :product_analyzer
      end
    end
 
