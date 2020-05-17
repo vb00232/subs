@@ -231,6 +231,12 @@ textarea {
   a{
     color: $darkGrey;
   }
+  background-image: url('/assets/ItemsBackground.png');
+}
+
+.shadedbox{
+  background-color: rgba(250, 250, 250, .7);
+
 }
 
 /*************** footer *************/
