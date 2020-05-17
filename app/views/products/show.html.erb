@@ -10,6 +10,11 @@
 
 <p> Seller:
   <%= link_to @product.user.firstname, products_path(user: @product.user), id: 'user_link' %>
+
+</p>
+<p>
+
+  <%=@product.user.email %>
 </p>
 
 <p>

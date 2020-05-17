@@ -20,8 +20,10 @@
         <p><%= number_to_currency(product.price, :unit => "£") %></p>
       </div>
       <div class="options">
+        <% if product.user.email == current_user.email %>
         <%= link_to image_tag("/assets/editicon.png", :alt => "edit icon", :class => "icon"), edit_product_path(product.id)%>
         <%= link_to image_tag("/assets/deleteicon.png", :alt => "delete icon", :class => "icon"), product_path(product.id), data: {method: :delete, confirm: "Are you sure?"} %>
+        <%end%>
       </div>
     </div>
   <% end %>
