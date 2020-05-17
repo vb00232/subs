@@ -65,7 +65,7 @@ p {
   color: $surreyBlue;
 }
 
-h2, h3 {
+h2, h3, h4 {
   font-family: "Exo2-Bold";
   //text-align: center;
 }
@@ -281,4 +281,9 @@ footer{
   color: white;
   background-color: $surreyBlue;
   font-family: "Exo2-Bold";
+}
+
+// Category checkboxes
+.checkmark {
+  color: pink;
 }
