@@ -10,6 +10,10 @@ class FavoritesController < ApplicationController
         if product_wish_list == []
           fav = Favorite.new(product: product, user: current_user)
           fav.save
+        else
+          product_wish_list.each do |prod|
+            prod.destroy
+          end
         end
       end
     end

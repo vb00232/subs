@@ -15,10 +15,6 @@ class ApplicationController < ActionController::Base
         stored_location_for(resource) || listings_path
       end
 
-      def favorite_text
-      return @favorite_exists ? "Remove from wish list" : "Add to wish list"
-      end
-
       def set_up_categories
         # Gets category names for drop down
         categories = Category.all

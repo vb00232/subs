@@ -2,11 +2,15 @@
 
 <p><%= @product.name %></p>
 <% if @product.image.attached? %>
-<%= image_tag(@product.image, class: "productImage")%>
+  <%= image_tag(@product.image, class: "productImage")%>
 <% end %>
 <p><%= @product.description %></p>
 
-<%= link_to favorite_text, wishlist_path(product: @product) %>
+<% if @inWishList %>
+  <%= link_to "Remove from wish list", wishlist_path(product: @product) %>
+<% else %>
+  <%= link_to "Add to wish list", wishlist_path(product: @product) %>
+<% end %>
 
 <p> Seller:
   <%= link_to @product.user.firstname, products_path(user: @product.user) %>

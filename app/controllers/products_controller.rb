@@ -67,6 +67,13 @@ class ProductsController < ApplicationController
         @categories.append(cat.first)
       end
     end
+
+    @inWishList = false
+    wish_list = Favorite.product_favourite(@product.id, current_user)
+    if wish_list != []
+      @inWishList = true
+    end
+
   end
 
   # GET /products/new
