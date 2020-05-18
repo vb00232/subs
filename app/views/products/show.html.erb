@@ -6,10 +6,10 @@
 <% end %>
 <p><%= @product.description %></p>
 
-<%= link_to favorite_text, wishlist_path(product: @product), id: 'favorite_link'%>
+<%= link_to favorite_text, wishlist_path(product: @product) %>
 
 <p> Seller:
-  <%= link_to @product.user.firstname, products_path(user: @product.user), id: 'user_link' %>
+  <%= link_to @product.user.firstname, products_path(user: @product.user) %>
 
 </p>
 <p>

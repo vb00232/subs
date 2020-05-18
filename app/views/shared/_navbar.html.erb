@@ -4,7 +4,7 @@
     <ul class="nav navbar-nav navbar-left">
       <% if user_signed_in? %>
         <li>
-          <%= link_to t('navigation.main'), listings_path %>
+          <%= link_to t('navigation.main'), listings_path, class: "white" %>
         </li>
         <li>
           <%= render 'shared/search' %>
@@ -25,7 +25,7 @@
           </div>
         </li>
         <li>
-          <%= link_to t('navigation.logout'), destroy_user_session_path, method: 'delete' %>
+          <%= link_to t('navigation.logout'), destroy_user_session_path, class: "white", method: 'delete' %>
         </li>
       <% else %>
         <li>

@@ -25,7 +25,7 @@
  $mediumGrey: #8f8f8f;
  $darkGrey: #525252;
  $surreyBlue: #002868;
- $linkColour: white;
+ $linkColour: #303030;
 
  /* Custom fontface */
  @font-face {
@@ -72,6 +72,12 @@ h2, h3, h4 {
 
 a, a:visited {
   color: $linkColour;
+  font-family: "Exo2-Medium";
+  font-size: 15px;
+}
+
+a.white, a.white:visited {
+  color: white;
   font-family: "Exo2-Medium";
   font-size: 15px;
 }
@@ -155,7 +161,7 @@ button:focus {
 }
 
 .dropdown {
-  color: $linkColour;
+  color: white;
   position: relative;
   display: block;
   padding: 10px 15px;

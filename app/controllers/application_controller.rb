@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       end
 
       def favorite_text
-      return @favorite_exists ? "Unfavorite" : "Unfavorite"
+      return @favorite_exists ? "Remove from wish list" : "Add to wish list"
       end
 
       def set_up_categories
