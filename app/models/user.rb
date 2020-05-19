@@ -9,4 +9,8 @@ class User < ApplicationRecord
 
    has_many :products, dependent: :destroy
    has_many :favorites, dependent: :destroy
+
+   # Finds a user
+   scope :find_user, -> (id) { where(['id=?', id]) }
+
 end

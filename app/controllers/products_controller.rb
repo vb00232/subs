@@ -41,6 +41,7 @@ class ProductsController < ApplicationController
     user = params[:user]
     if user
       @products = Product.user_products(user)
+      @user = User.find_user(user).first
     end
 
     if sort == t('sortby.lowtohigh')
