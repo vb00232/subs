@@ -72,7 +72,7 @@ en:
   # Navigation bar text
   navigation:
     home: Home
-    profile: My Profile
+    profile: Edit Account
     logout: Logout
     login: Sign in
     register: Sign up
