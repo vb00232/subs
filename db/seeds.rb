@@ -10,23 +10,28 @@ for c in categories do
   cat = Category.create([name: c])
 end
 
-# Seeds used to test elastic search
+# University of Surrey location
+Place.create!([
+{ "name": "University of Surrey", "latitude": "51.2423","longitude": "0.5905"},
+])
 
-Product.__elasticsearch__.create_index!(force: true)
-
-# Test user
-user1 = User.where(email: 'aa00000@surrey.ac.uk').first
-user1.delete if user1
-user1 = User.create([firstname: 'test',
-  lastname: 'test',
-  email: 'aa00000@surrey.ac.uk',
-  password: 'password',
-  encrypted_password: '#$taawktljasktlw4aaglj'])
-
-# Test product
-product1 = Product.where(name: 'Test products').first
-product1.delete if product1
-product1 = Product.create([name: 'Name',
-  description: 'Description',
-  price: 1,
-  user_id: user1.first.id])
+# # Seeds used to test elastic search
+#
+# Product.__elasticsearch__.create_index!(force: true)
+#
+# # Test user
+# user1 = User.where(email: 'aa00000@surrey.ac.uk').first
+# user1.delete if user1
+# user1 = User.create([firstname: 'test',
+#   lastname: 'test',
+#   email: 'aa00000@surrey.ac.uk',
+#   password: 'password',
+#   encrypted_password: '#$taawktljasktlw4aaglj'])
+#
+# # Test product
+# product1 = Product.where(name: 'Test products').first
+# product1.delete if product1
+# product1 = Product.create([name: 'Name',
+#   description: 'Description',
+#   price: 1,
+#   user_id: user1.first.id])

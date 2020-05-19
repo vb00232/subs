@@ -25,21 +25,25 @@ $(document).ready(function() {
   if (footerTop < docHeight)
       $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
 
-  $('#A2').hide();
-  $('#q2').click(function(){
-    $('#A2').toggle();
+  // Help page questions and answers
+  var questions = ['.Q2', '.Q3', '.Q4', '.Q5']
+  var answers = ['.A2', '.A3', '.A4', '.A5']
+
+  for(i = 0; i < answers.length; i++) {
+    $(answers[i]).hide();
+  }
+
+  $('.q2').click(function(){
+    $('.A2').toggle();
   });
-  $('#A3').hide();
-  $('#q3').click(function(){
-    $('#A3').toggle();
+  $('.q3').click(function(){
+    $('.A3').toggle();
   });
-  $('#A4').hide();
-  $('#q4').click(function(){
-    $('#A4').toggle();
+  $('.q4').click(function(){
+    $('.A4').toggle();
   });
-  $('#A5').hide();
-  $('#q5').click(function(){
-    $('#A5').toggle();
+  $('.q5').click(function(){
+    $('.A5').toggle();
   });
 });
 
