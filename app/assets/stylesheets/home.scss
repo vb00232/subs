@@ -61,67 +61,6 @@ $darkGrey: #525252;
   background-color: #e2e3e4;
 }
 
-//twitter box styling
-h3.favtweets{
-  text-align: center;
-  margin: 10px;
-}
-#favs{
-  display: inline-block;
-  background-color: #e2e3e4;
-  border-radius: 20px;
-}
-.twitterButton{
-  text-align: center;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-.picAndTweet{
-  //display: inline-block;
-}
-#tweerProfile{
-  float: left;
-  padding: 5px;
-}
-
-.tweet{
-  margin: 10px;
-}
-
-.message{
-  width: 400px;
-  float: right;
-}
-
-.from{
-  font-weight: bold;
-}
-
-
-
-
-.contactimage {
-  float: right;
-  height: 300px;
-}
-
-i {
-  border: solid black;
-  border-width: 0 6px 6px 0;
-  display: inline-block;
-  padding: 6px;
-}
-.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-
-p {
-  font-size: 15px;
-}
-
-
-
 // Box around contact page questions
 .question_box {
   background-color: $lightGrey;

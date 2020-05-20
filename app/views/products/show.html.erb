@@ -1,33 +1,64 @@
 <h2>Product</h2>
-
-<p><%= @product.name %></p>
-<% if @product.image.attached? %>
-  <%= image_tag(@product.image, class: "productImage")%>
-<% end %>
-<p><%= @product.description %></p>
-
-<% if @inWishList %>
-  <%= link_to "Remove from wish list", wishlist_path(product: @product) %>
-<% else %>
-  <%= link_to "Add to wish list", wishlist_path(product: @product) %>
-<% end %>
-
-<p> Seller:
-  <%= link_to @product.user.firstname, products_path(user: @product.user) %>
-
-</p>
-<p>
-
-  <%=@product.user.email %>
-</p>
-
-<p>
-  <p> Categories: </p>
-  <% if @categories && @categories != []%>
-    <% @categories.each do |category| %>
-      <p><%= category.name %></p>
+<div class="individualProduct">
+  <div class="aboutProduct">
+    <span><%= @product.name %></span>
+    <span class="currency"><%= number_to_currency(@product.price, :unit => "£") %></span>
+    <div class="carousel-container">
+      <div class="slider">
+        <section>
+            <% if @product.image.attached? %>
+              <%= image_tag(@product.image, class: "productImage")%>
+            <% end %>
+        </section>
+        <section><p>image not found</p></section>
+        <section><p>image not found</p></section>
+        <section><p>image not found</p></section>
+      </div>
+      <div class="controls">
+        <span class="arrow left"><%= image_tag( "left-arrow.png") %></span>
+        <span class="arrow right"><%= image_tag( "right-arrow.png") %></span>
+      </div>
+    </div>
+    <p class="posted">Posted: <%=@product.created_at.strftime("%Y-%m-%d")%></p>
+    <% if @inWishList %>
+      <span><%= link_to "Remove from wish list", wishlist_path(product: @product) %></span>
+    <% else %>
+      <span><%= link_to "Add to wish list", wishlist_path(product: @product) %></span>
     <% end %>
-  <% else %>
-    <p> No categories </p>
-  <% end %>
-<p>
+    <h4>Description</h4>
+    <p class="description"><%= @product.description %></p>
+    <p class="cats">Categories:</p>
+    <% if @categories && @categories != []%>
+      <% @categories.each do |category| %>
+        <p class="cats"><%= category.name %></p>
+      <% end %>
+    <% else %>
+        <p class="cats">No categories</p>
+    <% end %>
+  </div>
+  <div class="sellerdetails-share">
+    <div class="details">
+      <p>Seller:<%= link_to @product.user.firstname, products_path(user: @product.user) %></p>
+    </div>
+    <div class="contactdetails">
+      <p>Get in contact</p>
+      <p><%=@product.user.email %></p>
+    </div>
+    <div id="favs">
+      <h3 class="favtweets"><%= t(".tweets_header") %></h3>
+      <div class="twitterButton">
+        <a href="https://twitter.com/SUBS90033893?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-screen-name="false" data-show-count="false">Follow @SUBS90033893</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Check out SUBS to sell or buy from other Surrey students!" data-url="http://example.com/" data-hashtags="SUBS" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      <% $client.favorites(count: 3).each do |tweet| %>
+        <div class="tweet">
+          <div class="from">@<%= tweet.user.screen_name %></div>
+          <div class="picAndTweet">
+            <image id="tweerProfile" src="<%= tweet.user.profile_image_url %>"/>
+            <blockquote class="message"><%= tweet.text %></blockquote>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

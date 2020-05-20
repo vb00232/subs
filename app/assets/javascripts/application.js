@@ -55,6 +55,26 @@ $(document).ready(function(){
    },1000);
 });
 
+//carousel for a indvidual product
+$(document).ready(function(){
+  let sectionIndex = 0;
+
+  $(".left").click(function(){
+    if(sectionIndex>0){
+      sectionIndex--;
+      $(".slider").css("transform", `translate(-${sectionIndex*25}%)`)
+    }
+  });
+
+  $(".right").click(function(){
+    if(sectionIndex<3){
+      sectionIndex++;
+      $(".slider").css("transform", `translate(-${sectionIndex*25}%)`)
+    }
+  });
+
+});
+
 //Following is all for the carousel on main(view listings) page
 //Had to split each carousel track so they didn't all move together
 //and only moved for the particular category
