@@ -50,36 +50,37 @@
     <% if @products.empty? %>
       <h2>No products found</h2>
     <% else %>
-      <% unless @category.nil? %>
-        <h2> <%= @category %> </h2>
-      <% end %>
-      <%# Sorting of products %>
-      <%= render 'shared/sortby' %>
+      <section class="categoryAllProducts">
+        <% unless @category.nil? %>
+          <h2> <%= @category %> </h2>
+        <% end %>
+        <%# Sorting of products %>
+        <%= render 'shared/sortby' %>
 
-      <%# Displays message for query  %>
-      <% unless @query.nil? %>
-        <h2>Search results for "<%=@query%>"</h2>
-      <% end %>
-      <div class="item-container">
+        <%# Displays message for query  %>
+        <% unless @query.nil? %>
+          <h2>Search results for "<%=@query%>"</h2>
+        <% end %>
+        <br/>
         <% @products.each do |product| %>
-          <div class="item">
-            <div class="img">
+          <div class="productRow">
+            <div class="image-product">
               <% if product.image.attached? %>
                 <%= link_to image_tag(product.image, class: "productImage"), product_path(product.id) %>
               <% else %>
                 <%= link_to image_tag("Icon.png", class: "productImage"), product_path(product.id) %>
               <% end %>
             </div>
-            <div class="info">
-              <p><%= product.name %></p>
-              <p><%= number_to_currency(product.price, :unit => "£") %></p>
+            <div class="productAbout">
+              <h4><%= product.name %></h4>
+              <p class="currency"><%= number_to_currency(product.price, :unit => "£") %></p>
+              <p class="date"><%= product.created_at.strftime("%Y-%m-%d") %></p>
             </div>
           </div>
         <% end %>
-      </div>
+      </section>
     <% end %>
   <% end %>
 <% end %>
-
 <br/>
 <%= link_to 'New Product', new_product_path %>

@@ -1,13 +1,13 @@
-<% if @user && @user != "" %>
-  <h2> <%= @user.firstname %>'s Listings </h2>
-<% else %>
-  <h2>My Listings</h2>
-<% end %>
-
-<%# Sorting of products %>
-<%= render 'shared/sortby' %>
-
 <div class="usersellingtable">
+  <% if @user && @user != "" %>
+    <h2> <%= @user.firstname %>'s Listings </h2>
+  <% else %>
+    <h2>My Listings</h2>
+  <% end %>
+
+  <%# Sorting of products %>
+  <%= render 'shared/sortby' %>
+  <br/>
   <% @products.each do |product| %>
     <div class="sellingrow">
       <%# Prevents errors if no image found %>
@@ -19,7 +19,7 @@
         <% end %>
       </div>
       <div class="about">
-        <h4><%= product.name %><h4>
+        <h4><%= product.name %></h4>
         <p><%= product.description %></p>
         <p><%= number_to_currency(product.price, :unit => "£") %></p>
       </div>
