@@ -1,4 +1,3 @@
-<h2>Product</h2>
 <div class="individualProduct">
   <div class="aboutProduct">
     <span><%= @product.name %></span>
@@ -45,7 +44,7 @@
       <p><%=@product.user.email %></p>
     </div>
     <div id="favs">
-      <h3 class="favtweets"><%= t(".tweets_header") %></h3>
+      <h3 class="favtweets">Tweet SUBS</h3>
       <div class="twitterButton">
         <a href="https://twitter.com/SUBS90033893?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-screen-name="false" data-show-count="false">Follow @SUBS90033893</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Check out SUBS to sell or buy from other Surrey students!" data-url="http://example.com/" data-hashtags="SUBS" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -54,8 +53,8 @@
         <div class="tweet">
           <div class="from">@<%= tweet.user.screen_name %></div>
           <div class="picAndTweet">
-            <image id="tweerProfile" src="<%= tweet.user.profile_image_url %>"/>
-            <blockquote class="message"><%= tweet.text %></blockquote>
+            <img src="<%= tweet.user.profile_image_url %>"/>
+            <p class="message"><%= tweet.text %></p>
           </div>
         </div>
       <% end %>
