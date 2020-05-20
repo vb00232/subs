@@ -42,7 +42,7 @@
 }
 
 .individualProduct{
-  margin: 40px 130px;
+  margin: 40px 300px;
   display: flex;
   .aboutProduct{
     padding: 15px;
@@ -168,6 +168,12 @@
         }
       }
     }
+  }
+}
+
+@media only screen  and (max-width : 1300px) {
+  .individualProduct{
+    margin: 40px 140px;
   }
 }
 
