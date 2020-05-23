@@ -123,7 +123,7 @@ button:focus {
 
 .nav>li>a:focus, .nav>li>a:hover {
   text-decoration: none;
-  border-bottom: 1px solid $linkColour;
+  border-bottom: 1px solid white;
   padding-bottom: 5px;
   background-color: transparent !important;
 
@@ -189,7 +189,7 @@ button:focus {
 
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
+  padding: 12px 14px;
   text-decoration: none;
   display: block;
 }
@@ -267,6 +267,16 @@ footer{
   height: 100px;
   text-align: center;
   display: table;
+  .footer-links{
+    margin-top: 30px;
+    a{
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+    p{
+      margin-top: 15px;
+    }
+  }
 }
 
 
