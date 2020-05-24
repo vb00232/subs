@@ -309,7 +309,18 @@ footer{
   font-family: "Exo2-Bold";
 }
 
-// Category checkboxes
+// Category check marks
+.checkbox_container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  color: $surreyBlue;
+  font-family: "Exo2-Medium";
+}
+
+// Customisation of check mark
 .checkmark {
-  color: pink;
+  position: absolute;
+  height: 30px;
+  width: 30px;
 }
