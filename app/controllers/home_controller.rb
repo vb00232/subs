@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   end
 
   def help
+    @place = Place.all.first
   end
 
   def contact
