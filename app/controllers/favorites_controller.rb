@@ -6,7 +6,8 @@ class FavoritesController < ApplicationController
       # Finds the product
       product = Product.product_id(product_id).first
       if product && product != ""
-        product_wish_list = Favorite.product_favourite(product_id, current_user)
+        product_wish_list = Favorite.find_user(current_user).find_product(product.id)
+        flash[:alert] = product_wish_list.size
         if product_wish_list == []
           fav = Favorite.new(product: product, user: current_user)
           fav.save

@@ -70,7 +70,7 @@ class ProductsController < ApplicationController
     end
 
     @inWishList = false
-    wish_list = Favorite.product_favourite(@product.id, current_user)
+    wish_list = Favorite.find_user(current_user).find_product(@product.id)
     if wish_list != []
       @inWishList = true
     end
