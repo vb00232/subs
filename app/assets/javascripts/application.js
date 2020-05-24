@@ -26,8 +26,8 @@ $(document).ready(function() {
       $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
 
   // Help page questions and answers
-  var questions = ['.Q2', '.Q3', '.Q4', '.Q5']
-  var answers = ['.A2', '.A3', '.A4', '.A5']
+  var questions = ['.Q2', '.Q3', '.Q4', '.Q5', '.Q6', '.Q7', '.Q8']
+  var answers = ['.A2', '.A3', '.A4', '.A5', '.A6', '.A7', '.A8']
 
   for(i = 0; i < answers.length; i++) {
     $(answers[i]).hide();
@@ -44,6 +44,15 @@ $(document).ready(function() {
   });
   $('.q5').click(function(){
     $('.A5').toggle();
+  });
+  $('.q6').click(function(){
+    $('.A6').toggle();
+  });
+  $('.q7').click(function(){
+    $('.A7').toggle();
+  });
+  $('.q8').click(function(){
+    $('.A8').toggle();
   });
 });
 
