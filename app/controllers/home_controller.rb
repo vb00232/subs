@@ -9,6 +9,12 @@ class HomeController < ApplicationController
   def contact
   end
 
+  def privacy_policy
+  end
+
+  def terms_and_conditions
+  end
+
   def request_contact
     name = params[:name]
     email = params[:email]

@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  
+
   root to: 'home#home'
   get 'help' => 'home#help'
   get 'contact' => 'home#contact'
+  get 'privacy' => 'home#privacy_policy'
+  get 'terms' => 'home#terms_and_conditions'
   get 'account' => 'account#account'
   get 'wishlist' => 'favorites#index'
   get 'main' => 'main#main', as: 'listings'
