@@ -2,8 +2,8 @@
 
 one:
   product: one
-  uesr: one
+  user: one
 
 two:
   product: two
-  uesr: two
+  user: two
