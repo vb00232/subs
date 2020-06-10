@@ -1,0 +1,20 @@
+<div class="searchfield">
+  <% # Search bar %>
+  <%= form_tag href="/main", method: :get, class: "navbar-form", role: "search" do %>
+      <li>
+        <% # Checks if categories found %>
+        <% if @categoryNames && @categoryNames != [] %>
+          <% # Dyamically creates selection tag using category names %>
+          <% # Unselected is default value %>
+          <%= select_tag 'category',
+          options_for_select([t('categories.unselected')] + @categoryNames,
+          t('categories.unselected')), class: "productCategories" %>
+        <% else %>
+          <%= select_tag 'category', options_for_select(['No categories found (only works on view listings at moment as made dynamic)']),
+          class: "productCategories" %>
+        <% end %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search..."%>
+        <%= image_submit_tag("/assets/SearchIcon3.png", class: "btn btn-default searchButton", style: "height: 35px; margin:0;") %>
+      </li>
+  <% end %>
+</div>

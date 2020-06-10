@@ -30,4 +30,72 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world. This is our project!" 
+  app_title: "SUBS"
+  hello: "Hello world. This is our project!"
+
+  home:
+    home:
+      title: S.U.B.S
+      full_title: Surrey University Buy and Sell
+
+      description_header: How it works?
+      description: >
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. <br />
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      tweets_header: SUBS favorite tweets
+
+    contact:
+      title: Contact Us
+      contact_us: Enter the fields below to contact us
+
+      name: "Name:"
+      enter_name: Enter your name
+      email: "Email:"
+      enter_email: Enter your email address
+      telephone: "Telephone:"
+      enter_telephone: Enter your telephone number
+      message: "Message:"
+      enter_message: What do you want to say?
+      submit: Submit
+
+    request_contact:
+      no_email: Please enter an email address
+      no_name: Please enter your name
+      no_telephone: Please enter a valid telephone number
+      no_message: Please enter your message for us
+      email_sent: Your enquiry has been sent
+
+    item:
+      index:
+        search: Search
+
+  # Navigation bar text
+  navigation:
+    home: Home
+    profile: Edit Account
+    logout: Logout
+    login: Sign in
+    register: Sign up
+    main: View listings
+
+  # Product categories
+  categories:
+    unselected: No category selected
+    art: Art
+    books: Books
+    clothes: Clothes
+    electronics: Electronics
+    tickets: Event Tickets
+    furniture: Furniture
+    health_and_beauty: Health and Beauty
+    jewelry: Jewelry
+    games: Video games and consoles
+    other: Other
+
+  # Sorting of products
+  sortby:
+    featured: Featured
+    lowtohigh: Low to high
+    hightolow: High to low
+    newlistings: New listings
+    oldlistings: Old listings

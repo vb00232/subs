@@ -1,0 +1,44 @@
+<nav class="navbar navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <%= link_to image_tag("/assets/mainlogo.png", :alt => "Subs logo", :class => "navlogo"), root_path %>
+    <ul class="nav navbar-nav navbar-left">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to t('navigation.main'), listings_path, class: "white" %>
+        </li>
+        <li>
+          <%= render 'shared/search' %>
+        </li>
+      <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn"><%= current_user.firstname %></button>
+            <div class="dropdown-content">
+              <a href="/products/new">Create Listing</a>
+              <%= link_to "Selling", products_path %>
+              <%= link_to t('navigation.profile'), edit_user_registration_path %>
+              <%= link_to "Wish List", wishlist_path %>
+            </div>
+          </div>
+        </li>
+        <li>
+          <%= link_to t('navigation.logout'), destroy_user_session_path, class: "white", method: 'delete' %>
+        </li>
+      <% else %>
+        <li>
+          <a href="<%= new_user_registration_path%>", class="white">
+            <%= t('navigation.register') %>
+          </a>
+        </li>
+        <li>
+          <a href="<%= new_user_session_path %>", class="white">
+            <%= t('navigation.login') %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

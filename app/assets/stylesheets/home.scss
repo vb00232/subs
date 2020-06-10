@@ -1,3 +1,131 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$lightGrey: #e5e5e5;
+$darkGrey: #525252;
+
+/*Home page styles*/
+.landing {
+  color: white;
+  height: 600px;
+  background-image: url('/assets/homepic1.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    text-transform: uppercase;
+    z-index: 1;
+    font-size: 80px;
+    text-shadow: 2px 2px 4px #000000;
+    margin-top: -40px;
+  }
+  h2 {
+    font-size: 30px;
+    z-index: 1;
+    text-shadow: 2px 2px 4px #000000;
+  }
+}
+
+.landing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.seconeexplain{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  h3{
+    font-size: 35px;
+  }
+  p{
+    width: 30%;
+    text-align: center;
+    font-size: 23px;
+    line-height: 30px;
+  }
+}
+
+.homesection1 {
+  margin-top: 20px;
+  margin-bottom: 60px;
+  margin-left: 125px;
+  margin-right: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .subsdiagram {
+    margin: 20px;
+    height: 500px;
+    width: 400px;
+    h3{
+      font-size: 30px;
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+
+.homesection2{
+  padding: 20px 125px;
+  background-color: #e2e3e4;
+  .sectwoexplain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    h3{
+      font-size: 35px;
+    }
+    p{
+      width: 80%;
+      text-align: center;
+      font-size: 20px;
+      line-height: 30px;
+      margin-top: 10px;
+    }
+  }
+  .uniqueSubs{
+    padding: 15px;
+    width: 80%;
+    margin: 0 auto;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    .textwhy{
+      margin: 30px;
+      flex: 1 0 40%;
+      h4{
+        font-size: 20px;
+        text-align: center;
+      }
+      p{
+        text-align: center;
+        font-size: 18px;
+        line-height: 25px;
+      }
+    }
+  }
+}
+
+// Box around contact page questions
+.question_box {
+  background-color: $lightGrey;
+  padding: 15px;
+}

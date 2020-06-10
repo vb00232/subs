@@ -1,0 +1,41 @@
+// Place all the styles related to the Favorites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$lightGrey: #e5e5e5;
+$darkGrey: #525252;
+
+.userwishlisttable{
+  width: 80%;
+  margin: 0 auto;
+  padding: 40px 0px;
+  .wishlistrow{
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid $lightGrey;
+    .image-container-wishlist {
+      height: 150px;
+      width: 150px;
+      img {
+        border: 1px solid $darkGrey;
+      }
+    }
+    .about{
+      display: inline-block;
+      margin-left: 30px;
+      width: 60%;
+      p:first-child{
+        font-size: 16px;
+      }
+    }
+    .options{
+      margin-left: auto;
+      margin-right: 40px;
+      .icon{
+        border: none;
+      }
+    }
+  }
+}

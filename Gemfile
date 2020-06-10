@@ -3,10 +3,30 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'searchkick'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'modernizr-rails'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
+gem 'rails-controller-testing'
+gem 'mini_magick'
+
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
+#use sqlite3 for development and postgresql for production
+group :development, :test do
+   gem 'sqlite3'    #gem to use in development-test environment
+end
+group :production do
+  gem 'pg'         #gem to use in production environment
+  gem 'rails_12factor'
+end
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -35,6 +55,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'rails-controller-testing'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -60,3 +81,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'jquery-rails'
+gem 'haml-rails'
+
+#twitter gem
+gem 'twitter'
+#paperclip gem for image uploading
+gem 'paperclip', '~> 5.0.0'
+
+gem 'image_processing', '~> 1.2'
