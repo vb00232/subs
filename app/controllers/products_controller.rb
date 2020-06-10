@@ -42,6 +42,8 @@ class ProductsController < ApplicationController
     if user
       @products = Product.user_products(user)
       @user = User.find_user(user).first
+    else
+      @products = Product.user_products(current_user.id)
     end
 
     if sort == t('sortby.lowtohigh')
