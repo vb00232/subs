@@ -338,6 +338,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   listen (>= 3.0.5, < 3.2)
+  mini_magick
   modernizr-rails
   paperclip (~> 5.0.0)
   pg

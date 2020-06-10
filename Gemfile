@@ -12,6 +12,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'rails-controller-testing'
+gem 'mini_magick'
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

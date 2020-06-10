@@ -41,13 +41,15 @@ user3 = User.create([firstname: 'Rahmi',
         email: 'rk00001@surrey.ac.uk',
         password: 'password'])
 
+img = File.open('test/fixtures/files/TestImage.png')
+
 # Test products
 product1 = Product.where(name: 'Gaming chair').first
 product1.delete if product1
 product1 = Product.new
-product1.name = "Gaming chair"
+product1.name = 'Gaming chair'
 product1.price = 80
-product1.description = "A product for testing SUBS"
+product1.description = 'A product for testing SUBS'
 product1.user = user1.first
+product1.image.attach(io: img, filename: 'file.png')
 product1.save
-product1.image.attach(io: File.open('test/fixtures/files/TestImage.png'), filename: 'file.png')
