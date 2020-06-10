@@ -17,7 +17,7 @@
             <div class="item-container">
               <div class="item">
                 <div class="img">
-                  <% if product.image.attached? %>
+                  <% if product.image & product.image.attached? %>
                     <%= link_to image_tag(product.image, class: "productImage"), product_path(product.id) %>
                   <% else %>
                     <%= link_to image_tag("Icon.png", class: "productImage"), product_path(product.id) %>
@@ -63,12 +63,15 @@
         <% end %>
         <br/>
         <% @products.each do |product| %>
+          <% if product %>
           <div class="productRow">
             <div class="image-product">
-              <% if product.image.attached? %>
-                <%= link_to image_tag(product.image, class: "productImage"), product_path(product.id) %>
+              <% if product&.image %>
+                <% if product.image.attached? %>
+                  <%= link_to image_tag(product.image, class: "productImage"), product_path(product.id) %>
+                <% end %>
               <% else %>
-                <%= link_to image_tag("Icon.png", class: "productImage"), product_path(product.id) %>
+                  <%= link_to image_tag("Icon.png", class: "productImage"), product_path(product.id) %>
               <% end %>
             </div>
             <div class="productAbout">
@@ -77,6 +80,7 @@
               <p class="date"><%= product.created_at.strftime("%Y-%m-%d") %></p>
             </div>
           </div>
+          <% end %>
         <% end %>
       </section>
     <% end %>
